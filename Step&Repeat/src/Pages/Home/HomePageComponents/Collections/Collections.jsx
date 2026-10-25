@@ -1,9 +1,9 @@
 import React from "react";
 import "./Collections.css";
-import left_image from "../../Assets/Images/left-img.svg";
-import center_first from "../../Assets/Images/center1-img.svg";
-import center_second from "../../Assets/Images/center2-img.svg";
-import right_image from "../../Assets/Images/right-img.svg";
+import left_image from "../../../../Assets/Images/left-img.svg";
+import center_first from "../../../../Assets/Images/center1-img.svg";
+import center_second from "../../../../Assets/Images/center2-img.svg";
+import right_image from "../../../../Assets/Images/right-img.svg";
 
 const Collections = () => {
   return (

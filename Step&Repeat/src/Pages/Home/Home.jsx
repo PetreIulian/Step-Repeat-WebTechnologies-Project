@@ -1,8 +1,8 @@
 import React from 'react';
-import HeroSection from "../../Components/HeroSection/HeroSection.jsx"
+import HeroSection from "./HomePageComponents/HeroSection/HeroSection.jsx"
 import Footer from "../../Components/Footer/Footer.jsx"
-import ProductSwiper from '../../Components/ProductSwiper/ProductSwiper.jsx';
-import Collections from '../../Components/Collections/Collections.jsx';
+import ProductSwiper from './HomePageComponents/ProductSwiper/ProductSwiper.jsx';
+import Collections from './HomePageComponents/Collections/Collections.jsx';
 
 const Home = () => {
   return (
