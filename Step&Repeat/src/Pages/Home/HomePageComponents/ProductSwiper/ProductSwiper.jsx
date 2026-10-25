@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
-import AirForce from "../../Assets/Images/AirForce.svg";
+import AirForce from "../../../../Assets/Images/AirForce.svg";
 import "./ProductSwiper.css";
 
 const Products = [

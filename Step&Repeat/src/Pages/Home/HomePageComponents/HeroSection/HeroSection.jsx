@@ -1,6 +1,6 @@
 import React from "react"
-import hero_bg from "../../Assets/Images/FullBackground.svg" 
-import sneaker from "../../Assets/Images/Shoe.svg"
+import hero_bg from "../../../../Assets/Images/FullBackground.svg" 
+import sneaker from "../../../../Assets/Images/Shoe.svg"
 import "./HeroSection.css"
 
 const HeroSection = () => {
