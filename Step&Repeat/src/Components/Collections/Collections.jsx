@@ -12,16 +12,28 @@ const Collections = () => {
       
       <div className="grid-container">
         <div className="grid-left">
-          <img src={left_image} alt="Popular Brand Left" />
+          <a href="#nike" className="image-wrapper">
+            <img src={left_image} alt="Nike Sneakers" />
+            <div className="hover-text">Nike</div>
+          </a>
         </div>
 
         <div className="grid-center">
-          <img src={center_first} alt="Popular Brand Center First" />
-          <img src={center_second} alt="Popular Brand Center Second" />
+          <a href="#puma" className="image-wrapper">
+            <img src={center_first} alt="Puma Sneakers" />
+            <div className="hover-text">Puma</div>
+          </a>
+          <a href="#adidas" className="image-wrapper">
+            <img src={center_second} alt="Adidas Sneakers" />
+            <div className="hover-text">Adidas</div>
+          </a>
         </div>
 
         <div className="grid-right">
-          <img src={right_image} alt="Popular Brand Right" />
+          <a href="#newbalance" className="image-wrapper">
+            <img src={right_image} alt="New Balance Sneakers" />
+            <div className="hover-text">New Balance</div>
+          </a>
         </div>
       </div>
     </section>
