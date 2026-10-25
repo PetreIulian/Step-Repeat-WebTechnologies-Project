@@ -3,7 +3,7 @@ import Home from './Pages/Home/Home.jsx'
 import About from './Pages/About/About.jsx'
 import Contact from './Pages/Contact/Contact.jsx'
 import Shop from './Pages/Shop/Shop.jsx'
-import FQA from './Pages/FQA/FQA.jsx'
+import FAQ from './Pages/FAQ/FAQ.jsx'
 import Navbar from './Components/Navbar/Navbar.jsx'
 import Footer from './Components/Footer/Footer.jsx'
 import './App.css'
@@ -15,7 +15,7 @@ const AppContent = () => {
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/shop" element={<Shop />} />
-      <Route path="/fqa" element={<FQA />} />
+      <Route path="/faq" element={<FAQ />} />
     </Routes>
   )
 } 
