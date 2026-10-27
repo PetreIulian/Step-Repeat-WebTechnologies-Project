@@ -1,0 +1,271 @@
+.productSwiperSection {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+  font-family: var(--font-main);
+}
+
+.headingContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  padding: 0 40px;
+}
+
+.swiperHeading {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+.exploreButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background-color: transparent;
+  border: 2px solid #1a1a1a;
+  border-radius: 30px;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.exploreButton:hover {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.swiperContainerWrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  padding: 20px 0;
+}
+
+.navArrow {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  flex-shrink: 0;
+  z-index: 10;
+  transition: color 0.2s ease;
+}
+
+.navArrow:hover {
+  color: #555;
+}
+
+.navArrow :global(.swiper-button-disabled) {
+  opacity: 0.35;
+  cursor: auto;
+  pointer-events: none;
+}
+
+.swiperTrack {
+  width: 100%;
+  min-width: 0; 
+}
+
+.productCard {
+  background-color: var(--secondary-color, #f4f4f4);
+  border-radius: 24px;
+  padding: 24px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; 
+  box-sizing: border-box;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.productInfo h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.productInfo p {
+  font-size: 0.875rem;
+  color: #888;
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+.favoriteBtn {
+  background-color: #fff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #1a1a1a;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease;
+}
+
+.favoriteBtn:hover {
+  transform: scale(1.05);
+}
+
+.cardImage {
+  margin: 40px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardImage img {
+  width: 100%;
+  max-width: 250px;
+  object-fit: contain;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.addToCartBtn {
+  background-color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 24px;
+  font-family: var(--font-main);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.addToCartBtn:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .productSwiperSection {
+    margin: 40px auto;
+  }
+
+  .headingContainer {
+    padding: 0 20px;
+    margin-bottom: 30px;
+  }
+
+  .swiperHeading {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .headingContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 0 10px;
+  }
+
+  .swiperHeading {
+    font-size: 1.75rem;
+  }
+
+  .exploreButton {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
+
+  .navArrow {
+    display: none;
+  }
+
+  .swiperContainerWrapper {
+    gap: 0;
+  }
+
+  .productCard {
+    padding: 20px;
+  }
+
+  .cardImage {
+    margin: 30px 0;
+  }
+
+  .cardImage img {
+    max-width: 200px;
+  }
+
+  .price {
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .productSwiperSection {
+    margin: 30px auto;
+    padding: 0 15px;
+  }
+
+  .swiperHeading {
+    font-size: 1.5rem;
+  }
+
+  .productCard {
+    padding: 16px;
+  }
+
+  .productInfo h3 {
+    font-size: 1rem;
+  }
+
+  .favoriteBtn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .cardImage img {
+    max-width: 160px;
+  }
+
+  .cardImage {
+    margin: 20px 0;
+  }
+
+  .price {
+    font-size: 1.2rem;
+  }
+
+  .addToCartBtn {
+    padding: 10px 16px;
+    font-size: 0.8rem;
+  }
+}

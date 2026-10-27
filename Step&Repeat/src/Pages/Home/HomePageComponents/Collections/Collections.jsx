@@ -1,5 +1,5 @@
 import React from "react";
-import "./Collections.css";
+import styles from "./Collections.module.css";
 import left_image from "../../../../Assets/Images/left-img.svg";
 import center_first from "../../../../Assets/Images/center1-img.svg";
 import center_second from "../../../../Assets/Images/center2-img.svg";
@@ -7,32 +7,32 @@ import right_image from "../../../../Assets/Images/right-img.svg";
 
 const Collections = () => {
   return (
-    <section className="collections-container">
-      <h1 className="collections-heading">Explore Our Most Popular Brands</h1>
+    <section className={styles.collectionsContainer}>
+      <h1 className={styles.collectionsHeading}>Explore Our Most Popular Brands</h1>
       
-      <div className="grid-container">
-        <div className="grid-left">
-          <a href="#nike" className="image-wrapper">
+      <div className={styles.gridContainer}>
+        <div className={styles.gridLeft}>
+          <a href="#nike" className={styles.imageWrapper}>
             <img src={left_image} alt="Nike Sneakers" />
-            <div className="hover-text">Nike</div>
+            <div className={styles.hoverText}>Nike</div>
           </a>
         </div>
 
-        <div className="grid-center">
-          <a href="#puma" className="image-wrapper">
+        <div className={styles.gridCenter}>
+          <a href="#puma" className={styles.imageWrapper}>
             <img src={center_first} alt="Puma Sneakers" />
-            <div className="hover-text">Puma</div>
+            <div className={styles.hoverText}>Puma</div>
           </a>
-          <a href="#adidas" className="image-wrapper">
+          <a href="#adidas" className={styles.imageWrapper}>
             <img src={center_second} alt="Adidas Sneakers" />
-            <div className="hover-text">Adidas</div>
+            <div className={styles.hoverText}>Adidas</div>
           </a>
         </div>
 
-        <div className="grid-right">
-          <a href="#newbalance" className="image-wrapper">
+        <div className={styles.gridRight}>
+          <a href="#newbalance" className={styles.imageWrapper}>
             <img src={right_image} alt="New Balance Sneakers" />
-            <div className="hover-text">New Balance</div>
+            <div className={styles.hoverText}>New Balance</div>
           </a>
         </div>
       </div>

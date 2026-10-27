@@ -1,0 +1,370 @@
+.contactPageWrapper {
+  padding: clamp(30px, 5vw, 60px) clamp(15px, 3vw, 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(20px, 4vw, 40px);
+  margin-top: clamp(4rem, 10vw, 10rem);
+}
+
+.contactHeaderContainer {
+  max-width: 1160px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(15px, 3vw, 30px);
+}
+
+@media (min-width: 900px) {
+  .contactHeaderContainer {
+    flex-direction: row;
+  }
+}
+
+.contactHeaderCard {
+  flex: 1;
+  border-radius: clamp(12px, 2vw, 20px);
+  overflow: hidden;
+  min-height: clamp(260px, 30vw, 340px);
+}
+
+.textCard {
+  background-color: var(--grey);
+  padding: clamp(30px, 5vw, 50px) clamp(20px, 6vw, 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.textCard h1 {
+  font-family: var(--font-secondary);
+  font-size: clamp(28px, 10vw, 48px);
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 clamp(10px, 2vw, 15px) 0;
+  line-height: 1.2;
+}
+
+.textCard p {
+  font-family: var(--font-secondary);
+  font-size: clamp(13px, 2vw, 20px);
+  font-weight: 500;
+  opacity: 80%;
+  color: var(--black);
+  margin: 0;
+  line-height: 1.5;
+  max-width: clamp(200px, 85%, 100%);
+}
+
+.imageCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.contactCtaContainer {
+  width: 100%;
+  padding: clamp(30px, 5vw, 60px) clamp(15px, 3vw, 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+}
+
+.cctaHeadingContainer {
+  text-align: center;
+  margin-bottom: clamp(20px, 4vw, 40px);
+}
+
+.cctaFormContainer {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  filter: drop-shadow(0px clamp(8px, 1.5vw, 15px) clamp(15px, 3vw, 30px) rgba(0, 0, 0, 0.08));
+}
+
+.cctaFromGrid {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--secondary-color);
+  border-radius: clamp(12px, 2vw, 20px);
+  overflow: hidden;
+  width: 100%;
+}
+
+.cctaFormGridLeft {
+  background-color: var(--primary);
+  color: var(--secondary-color);
+  flex: 0 0 35%;
+  padding: clamp(30px, 5vw, 50px) clamp(20px, 4vw, 40px);
+  display: flex;
+  flex-direction: column;
+}
+
+.cctaContactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3vw, 30px);
+}
+
+.cctaContactInfoItem {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 2vw, 20px);
+}
+
+.cctaContactImage {
+  width: clamp(38px, 5vw, 48px);
+  height: clamp(38px, 5vw, 48px);
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  padding: clamp(10px, 1.5vw, 12px);
+  object-fit: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cctaContactImage img {
+  width: clamp(14px, 2vw, 18px);
+  height: clamp(14px, 2vw, 18px);
+}
+
+.cctaContactTextWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2px, 0.5vw, 4px);
+}
+
+.cctaContactTitle {
+  color: var(--primary-accents);
+  font-family: var(--font-main);
+  font-size: clamp(0.75rem, 1vw, 0.85rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cctaContactValue {
+  color: var(--grey);
+  font-family: var(--font-paragraph);
+  font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+  font-weight: 300;
+}
+
+.cctaGridLeftLine {
+  flex-grow: 1;
+  min-height: clamp(30px, 5vw, 60px);
+}
+
+.cctaSocials {
+  display: flex;
+  gap: clamp(10px, 1.5vw, 15px);
+}
+
+.cctaSocialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(34px, 4vw, 40px);
+  height: clamp(34px, 4vw, 40px);
+  border-radius: 50%;
+  border: 1px solid var(--primary-accents);
+  transition: all 0.3s ease;
+  color: var(--secondary-color);
+}
+
+.cctaSocialLink:hover {
+  background-color: var(--primary-accents);
+}
+
+.cctaSocialImage {
+  width: clamp(14px, 2vw, 18px);
+  height: clamp(14px, 2vw, 18px);
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(67%) sepia(42%) saturate(4163%) hue-rotate(320deg) brightness(101%) contrast(94%);
+}
+
+.cctaSocialLink:hover .cctaSocialImage {
+  filter: brightness(0) invert(1);
+}
+
+.cctaFormGridRight {
+  flex: 1;
+  padding: clamp(30px, 5vw, 50px);
+  background-color: var(--secondary-color);
+}
+
+.cctaFormHeadingContainer {
+  margin-bottom: clamp(20px, 3vw, 30px);
+}
+
+.cctaFormHeading {
+  font-family: var(--font-title);
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  color: var(--primary);
+  letter-spacing: 1px;
+  margin-bottom: clamp(10px, 1.5vw, 15px);
+  line-height: 1.2;
+}
+
+.cctaFormSubheading {
+  font-family: var(--font-paragraph);
+  font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+  color: #555;
+  font-weight: 400;
+}
+
+.cctaFormInnerLayout {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(15px, 2vw, 20px);
+}
+
+.cctaFormGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.thirdWidth {
+  grid-column: span 2;
+}
+
+.halfWidth {
+  grid-column: span 3;
+}
+
+.twoThirdsWidth {
+  grid-column: span 4;
+}
+
+.cctaFormLabel {
+  font-family: var(--font-main);
+  font-size: clamp(0.65rem, 1vw, 0.75rem);
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  margin-bottom: clamp(6px, 1vw, 8px);
+  letter-spacing: 0.5px;
+}
+
+.cctaFormInput,
+.cctaFormSelect,
+.cctaFormTextarea {
+  width: 100%;
+  height: clamp(40px, 5vw, 48px);
+  padding: 0 clamp(12px, 1.5vw, 15px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: clamp(6px, 1vw, 8px);
+  background-color: transparent;
+  font-family: var(--font-paragraph);
+  font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+  color: var(--primary);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.cctaFormInput::placeholder,
+.cctaFormTextarea::placeholder {
+  color: #A9A9A9;
+}
+
+.cctaFormInput:focus,
+.cctaFormSelect:focus,
+.cctaFormTextarea:focus {
+  border-color: var(--primary);
+}
+
+.cctaFormTextarea {
+  height: clamp(40px, 5vw, 48px);
+  padding-top: clamp(10px, 1.5vw, 14px);
+  resize: none;
+}
+
+.cctaFormButton {
+  width: 100%;
+  height: clamp(40px, 5vw, 48px);
+  background-color: var(--primary);
+  color: var(--secondary-color);
+  border: none;
+  border-radius: clamp(6px, 1vw, 8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(6px, 1vw, 10px);
+  font-family: var(--font-main);
+  font-size: clamp(0.75rem, 1.2vw, 0.85rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cctaFormButton:hover {
+  background-color: var(--black);
+}
+
+.cctaFormButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.cctaButtonIcon {
+  width: clamp(14px, 2vw, 16px);
+  height: clamp(14px, 2vw, 16px);
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.cctaStatusMessage {
+  font-family: var(--font-paragraph);
+  font-size: clamp(0.75rem, 1.2vw, 0.85rem);
+  margin-bottom: clamp(8px, 1.5vw, 10px);
+  text-align: center;
+}
+
+.cctaStatusMessage.success {
+  color: green;
+}
+
+.cctaStatusMessage.error {
+  color: red;
+}
+
+@media (max-width: 992px) {
+  .contactPageWrapper {
+    padding-top: 7rem;
+  }
+
+  .cctaFromGrid {
+    flex-direction: column;
+  }
+
+  .cctaFormGridLeft {
+    flex: 1;
+    padding: clamp(30px, 5vw, 40px);
+  }
+
+  .cctaGridLeftLine {
+    min-height: clamp(30px, 5vw, 40px);
+  }
+}
+
+@media (max-width: 768px) {
+  .cctaFormGridRight {
+    padding: clamp(30px, 5vw, 40px) clamp(15px, 3vw, 20px);
+  }
+
+  .cctaFormInnerLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .thirdWidth, 
+  .halfWidth,
+  .twoThirdsWidth {
+    grid-column: span 1;
+  }
+}

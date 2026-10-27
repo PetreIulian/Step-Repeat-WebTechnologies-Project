@@ -1,7 +1,7 @@
 import React from "react";
-import "./Contact.css";
+import styles from "./Contact.module.css";
 import placeholder from "../../Assets/Images/placeholder.svg";
-import Footer from "../../Components/Footer/Footer.jsx"
+import Footer from "../../Components/Footer/Footer.jsx";
 
 const FacebookSVG = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -69,80 +69,78 @@ const Socials = [
 const DefaultContactInfo = [
   { image: <EmailSVG />, title: "CONTACT EMAIL", value: "contact@stepandrepeat.com" },
   { image: <PhoneSVG />, title: "CONTACT PHONE", value: "+40 766 542 882" },
-  { image: <PinSVG />, title: "TEAM ADDRESS", value: "Splaiul Independenței 313\nBucharest, Romania" }
+  { image: <PinSVG />, title: "FIRM ADDRESS", value: "Splaiul Independenței 313\nBucharest, Romania" }
 ];
 
-
 const ContactCTA = ({ ContactInfo = DefaultContactInfo, banner, handleSubmit, handleChange, formData, isSending, statusMessage }) => {
-
   return (
-    <div className="contact-page-wrapper">
-      <section className="contact-header-container">
-        <div className="contact-header-card text-card">
+    <div className={styles.contactPageWrapper}>
+      <section className={styles.contactHeaderContainer}>
+        <div className={`${styles.contactHeaderCard} ${styles.textCard}`}>
           <h1>Get in Touch with US</h1>
           <p>Complete the form to get answers for every question you have.</p>
         </div>
-        <div className="contact-header-card image-card">
+        <div className={`${styles.contactHeaderCard} ${styles.imageCard}`}>
           <img src={banner || placeholder} alt="Contact Banner - Sneakers" />
         </div>
       </section>
 
-      <section className="contact-cta-container">
-        <div className="ccta-form-container">
-          <div className="ccta-from-grid">
+      <section className={styles.contactCtaContainer}>
+        <div className={styles.cctaFormContainer}>
+          <div className={styles.cctaFromGrid}>
             
-            <div className="ccta-form-grid-left">
-              <div className="ccta-contact-info">
+            <div className={styles.cctaFormGridLeft}>
+              <div className={styles.cctaContactInfo}>
                 {ContactInfo.map((info, index) => (
-                  <div key={index} className="ccta-contact-info-item">
-                    <div className="ccta-contact-image">
+                  <div key={index} className={styles.cctaContactInfoItem}>
+                    <div className={styles.cctaContactImage}>
                       {typeof info.image === 'string' ? <img src={info.image} alt={info.title} /> : info.image}
                     </div>
-                    <div className="ccta-contact-text-wrapper">
-                      <h3 className="ccta-contact-title">{info.title}</h3>
-                      <p className="ccta-contact-value" style={{ whiteSpace: "pre-line" }}>{info.value}</p>
+                    <div className={styles.cctaContactTextWrapper}>
+                      <h3 className={styles.cctaContactTitle}>{info.title}</h3>
+                      <p className={styles.cctaContactValue} style={{ whiteSpace: "pre-line" }}>{info.value}</p>
                     </div>
                   </div>
                 ))}
               </div>
-              <span className="ccta-grid-left-line"></span>
+              <span className={styles.cctaGridLeftLine}></span>
 
-              <div className="ccta-socials">
+              <div className={styles.cctaSocials}>
                 {Socials.map((social, index) => (
-                  <a href={social.link} key={index} className="ccta-social-link" target="_blank" rel="noopener noreferrer">
+                  <a href={social.link} key={index} className={styles.cctaSocialLink} target="_blank" rel="noopener noreferrer">
                     {social.icon}
                   </a>
                 ))}
               </div>
             </div>
 
-            <div className="ccta-form-grid-right">
-              <div className="ccta-form-heading-container">
-                <h1 className="ccta-form-heading">FILL OUT THE FORM TO RECEIVE MORE INFORMATION ABOUT US</h1>
-                <h2 className="ccta-form-subheading">Please fill out the form below. We will contact you within 3 business days.</h2>
+            <div className={styles.cctaFormGridRight}>
+              <div className={styles.cctaFormHeadingContainer}>
+                <h1 className={styles.cctaFormHeading}>FILL OUT THE FORM TO RECEIVE MORE INFORMATION ABOUT US</h1>
+                <h2 className={styles.cctaFormSubheading}>Please fill out the form below. We will contact you within 3 business days.</h2>
               </div>
 
-              <form className="ccta-form" onSubmit={handleSubmit}>
-                <div className="ccta-form-inner-layout">
+              <form className={styles.cctaForm} onSubmit={handleSubmit}>
+                <div className={styles.cctaFormInnerLayout}>
                   
-                  <div className="ccta-form-group third-width">
-                    <label className="ccta-form-label" htmlFor="entity">INDIVIDUAL / COMPANY *</label>
-                    <input className="ccta-form-input" type="text" id="entity" name="entity" value={formData?.entity || ''} onChange={handleChange} placeholder="E.g. Tech Solutions SRL" required />
+                  <div className={`${styles.cctaFormGroup} ${styles.thirdWidth}`}>
+                    <label className={styles.cctaFormLabel} htmlFor="entity">INDIVIDUAL / COMPANY </label>
+                    <input className={styles.cctaFormInput} type="text" id="entity" name="entity" value={formData?.entity || ''} onChange={handleChange} placeholder="E.g. Tech Solutions SRL" required />
                   </div>
 
-                  <div className="ccta-form-group third-width">
-                    <label className="ccta-form-label" htmlFor="name">CONTACT PERSON *</label>
-                    <input className="ccta-form-input" type="text" id="name" name="contactName" value={formData?.contactName || ''} onChange={handleChange} placeholder="Full name" required />
+                  <div className={`${styles.cctaFormGroup} ${styles.thirdWidth}`}>
+                    <label className={styles.cctaFormLabel} htmlFor="name">CONTACT PERSON *</label>
+                    <input className={styles.cctaFormInput} type="text" id="name" name="contactName" value={formData?.contactName || ''} onChange={handleChange} placeholder="Full name" required />
                   </div>
 
-                  <div className="ccta-form-group third-width">
-                    <label className="ccta-form-label" htmlFor="email">EMAIL ADDRESS *</label>
-                    <input className="ccta-form-input" type="email" id="email" name="email" value={formData?.email || ''} onChange={handleChange} placeholder="john_doe@gmail.com" required />
+                  <div className={`${styles.cctaFormGroup} ${styles.thirdWidth}`}>
+                    <label className={styles.cctaFormLabel} htmlFor="email">EMAIL ADDRESS *</label>
+                    <input className={styles.cctaFormInput} type="email" id="email" name="email" value={formData?.email || ''} onChange={handleChange} placeholder="john_doe@gmail.com" required />
                   </div>
 
-                  <div className="ccta-form-group half-width">
-                    <label className="ccta-form-label" htmlFor="requestType">REQUEST TYPE *</label>
-                    <select className="ccta-form-select" id="requestType" name="requestType" value={formData?.requestType || ''} onChange={handleChange} required>
+                  <div className={`${styles.cctaFormGroup} ${styles.halfWidth}`}>
+                    <label className={styles.cctaFormLabel} htmlFor="requestType">REQUEST TYPE *</label>
+                    <select className={styles.cctaFormSelect} id="requestType" name="requestType" value={formData?.requestType || ''} onChange={handleChange} required>
                       <option value="" disabled>Select an option</option>
                       <option value="Parteneriat">Partenership</option>
                       <option value="Întrebări tehnice">Questions</option>
@@ -150,23 +148,23 @@ const ContactCTA = ({ ContactInfo = DefaultContactInfo, banner, handleSubmit, ha
                     </select>
                   </div>
 
-                  <div className="ccta-form-group half-width">
-                    <label className="ccta-form-label" htmlFor="phone">PHONE *</label>
-                    <input className="ccta-form-input" type="tel" id="phone" name="phone" value={formData?.phone || ''} onChange={handleChange} placeholder="+40 700 000 000" required />
+                  <div className={`${styles.cctaFormGroup} ${styles.halfWidth}`}>
+                    <label className={styles.cctaFormLabel} htmlFor="phone">PHONE *</label>
+                    <input className={styles.cctaFormInput} type="tel" id="phone" name="phone" value={formData?.phone || ''} onChange={handleChange} placeholder="+40 700 000 000" required />
                   </div>
 
-                  <div className="ccta-form-group two-thirds-width">
-                    <label className="ccta-form-label" htmlFor="details">DETAILED MESSAGE</label>
-                    <textarea className="ccta-form-textarea" id="details" name="details" value={formData?.details || ''} onChange={handleChange} placeholder="Please provide a few details ..." required></textarea>
+                  <div className={`${styles.cctaFormGroup} ${styles.twoThirdsWidth}`}>
+                    <label className={styles.cctaFormLabel} htmlFor="details">DETAILED MESSAGE</label>
+                    <textarea className={styles.cctaFormTextarea} id="details" name="details" value={formData?.details || ''} onChange={handleChange} placeholder="Please provide a few details ..." required></textarea>
                   </div>
 
-                  <div className="ccta-form-group third-width ccta-btn-wrapper">
+                  <div className={`${styles.cctaFormGroup} ${styles.thirdWidth} ${styles.cctaBtnWrapper}`}>
                     {statusMessage && statusMessage.text && (
-                      <div className={`ccta-status-message ${statusMessage.type}`}>
+                      <div className={`${styles.cctaStatusMessage} ${styles[statusMessage.type]}`}>
                         {statusMessage.text}
                       </div>
                     )}
-                    <button className="ccta-form-button" type="submit" disabled={isSending}>
+                    <button className={styles.cctaFormButton} type="submit" disabled={isSending}>
                       <span>{isSending ? "SENDING..." : "SEND REQUEST"}</span>
                       {!isSending && <SendArrowSVG />}
                     </button>
@@ -184,8 +182,8 @@ const ContactCTA = ({ ContactInfo = DefaultContactInfo, banner, handleSubmit, ha
 const Contact = () => {
   return (
     <>
-      <ContactCTA/>
-      <Footer/> 
+      <ContactCTA />
+      <Footer /> 
     </>
   );
 }
