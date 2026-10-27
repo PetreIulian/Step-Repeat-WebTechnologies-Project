@@ -1,0 +1,149 @@
+.heroSection {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 12em 10%;
+  min-height: 85vh;
+  gap: 3rem;
+}
+
+.leftGrid {
+  flex: 1;
+  max-width: 50%;
+}
+
+.rightGrid {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-left: 20px;
+}
+
+.heroHeading {
+  font-family: var(--font-main);
+  font-size: clamp(2.5rem, 4vw, 3.5rem); 
+  font-weight: bold;
+  color: var(--secondary-color);
+  line-height: 1.2;
+  max-width: 550px;
+}
+
+.heroSubheading {
+  font-family: var(--font-paragraph);
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  font-weight: 400;
+  color: var(--grey);
+  line-height: 1.5;
+  max-width: 550px;
+}
+
+.ctaContainer {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.ctaContainer button {
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.buttonFirst {
+  background-color: var(--secondary-accents);
+  color: #fff;
+  border: none;
+}
+
+.buttonFirst:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.buttonSecond {
+  background-color: transparent;
+  color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
+}
+
+.buttonSecond:hover {
+  background-color: rgba(247, 247, 247, 0.1);
+  transform: translateY(-2px);
+}
+
+.rightGrid img {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  filter: drop-shadow(0px 40px 15px rgba(0, 0, 0, 0.4));
+}
+
+@media screen and (max-width: 1024px) {
+  .heroSection {
+    padding: 4rem 5%;
+  }
+  
+  .leftGrid {
+    max-width: 60%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heroSection {
+    flex-direction: column;
+    text-align: center;
+    padding: 12rem 5% 4rem 5%;
+    justify-content: center;
+  }
+
+  .leftGrid {
+    max-width: 100%;
+  }
+
+  .textContainer {
+    align-items: center;
+  }
+
+  .heroHeading, 
+  .heroSubheading {
+    max-width: 100%;
+  }
+
+  .ctaContainer {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .rightGrid {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ctaContainer {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .ctaContainer button {
+    width: 100%;
+  }
+  
+  .rightGrid img {
+    filter: drop-shadow(0px 20px 10px rgba(0, 0, 0, 0.4));
+  }
+}
