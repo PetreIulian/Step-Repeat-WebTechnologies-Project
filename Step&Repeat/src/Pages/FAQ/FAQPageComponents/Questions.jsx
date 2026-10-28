@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Questions.css";
 
 const faqData = [
@@ -35,6 +35,12 @@ const faqData = [
 ];
 
 const ContainerQuestions = () => {
+  const [openId, setOpenId] = useState(null);
+
+  const toggleQuestion = (id) => {
+    setOpenId(openId === id ? null : id);
+  };
+
   return (
     <div className="questions-container-page">
       <section className="header-grid-container">
@@ -55,15 +61,28 @@ const ContainerQuestions = () => {
       </section>
 
       <section className="questions-list-section">
-        {faqData.map((bundle) => (
-          <article className="bundle" key={bundle.id}>
-            <div className="question-header">
-              <h3 className="question">{bundle.question}</h3>
-              <span className="icon-toggle" aria-hidden="true">−</span>
-            </div>
-            <p className="answer">{bundle.answer}</p>
-          </article>
-        ))}
+        {faqData.map((bundle) => {
+          const isOpen = openId === bundle.id;
+
+          return (
+            <article className="bundle" key={bundle.id}>
+              <div 
+                className="question-header" 
+                onClick={() => toggleQuestion(bundle.id)}
+                style={{ cursor: "pointer" }}
+              >
+                <h3 className="question">{bundle.question}</h3>
+                <span className="icon-toggle" aria-hidden="true">
+                  {isOpen ? "−" : "+"}
+                </span>
+              </div>
+              
+              {isOpen && (
+                <p className="answer">{bundle.answer}</p>
+              )}
+            </article>
+          );
+        })}
       </section>
     </div>
   );
