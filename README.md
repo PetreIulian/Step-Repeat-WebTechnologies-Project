@@ -40,3 +40,9 @@ cd frontend
 npm install
 npm run dev
 Then open the address printed in the terminal (http://localhost:5173).
+
+## Stage 4: components
+The list is rendered from the data, through two components:
+- `ProductList` receives the whole array and renders one card per item
+- `ProductCard` receives a single item through props and displays it
+- Implemented almost all jsx and css components
