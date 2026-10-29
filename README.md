@@ -27,6 +27,8 @@ Open `index.html` in a browser. No build step, no server.
 - [x] Stage 1: static mockup
 - [x] Stage 2: data logic in JavaScript
 - [x] Stage 3: Vite and React project
+- [x] Stage 4: components rendered from data
+- [ ] Stage 5: local state and events
 
 ## Stage 2: data logic
 Plain JavaScript, no DOM. `adidasi.js` holds the array and the functions
