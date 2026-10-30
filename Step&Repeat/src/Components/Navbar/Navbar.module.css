@@ -11,7 +11,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 16px 32px;
-      background-color: #F7F7F7;
+      background-color: var(--secondary-color);
       border-radius: 50px;
       box-sizing: border-box;
       transition: all 0.4s ease-in-out; 
@@ -23,7 +23,7 @@
       width: 100%;
       border-radius: 0px;
       padding: 16px 64px;
-      background-color: rgba(247, 247, 247);
+      background-color: var(--secondary-color);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
@@ -36,7 +36,7 @@
 .logo {
       width: 60px;
       height: 60px;
-      background: #F58F7C;
+      background: var(--primary-accents);
       border-radius: 50px;
       padding: 10px;
       box-sizing: border-box;
@@ -83,7 +83,7 @@
 .action-button {
       height: 45px;
       width: 45px;
-      background: #1F2524;
+      background: var(--black);
       border-radius: 50%;
       display: inline-flex;
       justify-content: center;
@@ -96,6 +96,11 @@
 .action-button img {
       width: 20px;
       height: 20px;
+}
+
+.action-button img:hover {
+      transition: all 0.5s ease-in-out; 
+      transform: scale(125%);
 }
 
 .menu-toggle {
@@ -135,7 +140,7 @@
             top: 100%;
             left: 0;
             width: 100%;
-            background-color: #F7F7F7;
+            background-color: var(--secondary-color);
             flex-direction: column;
             align-items: center;
             gap: 20px;
@@ -166,7 +171,7 @@
             justify-content: center;
             width: 100%;
             padding-top: 16px;
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            border-top: 1px solid var(--grey);
       }
 
       .logo-title {
