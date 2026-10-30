@@ -3,13 +3,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-:root {
+:root[theme="light"], 
+:root:not([theme]) {
     --primary: #2C2B30;
     --secondary-color: #F7F7F7;
     --secondary-accents: #F2C4CE;
     --primary-accents: #F58F7C;
     --grey: #D6D6D6;
     --black: #1F2524;
+    
+    --font-title: 'Saira Stencil One';
+    --font-main: 'Poppins', sans-serif;
+    --font-secondary: 'Montserrat', sans-serif;
+    --font-paragraph: 'Inter', sans-serif;
+}
+
+:root[theme="dark"] {
+    --primary: #F7F7F7;
+    --secondary-color: #121212;
+    --secondary-accents: #E8A8B4;
+    --primary-accents: #F27860;
+    --grey: #3A3A3C;
+    --black: #FFFFFF;
+    
     --font-title: 'Saira Stencil One';
     --font-main: 'Poppins', sans-serif;
     --font-secondary: 'Montserrat', sans-serif;
@@ -22,6 +38,7 @@
     padding: 0;
     list-style: none;
     text-decoration: none;
+        color: var(--primary);
 }
 
 a:visited {

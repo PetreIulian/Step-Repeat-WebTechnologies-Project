@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Footer from "../../Components/Footer/Footer.jsx";
-import Navbar from "../../Components/Navbar/Navbar.jsx";
 import ProductList from "./ShopPageComponents/ProductList.jsx";
 import shoe_image from "../../Assets/Images/AirForce.svg";
 import "./Shop.css";
@@ -24,8 +23,6 @@ const Shop = () => {
 
   return (
     <>
-      <Navbar />
-
       <section className="products-store-wrapper">
         <div className="shop-container">
           <div className="filters-header">

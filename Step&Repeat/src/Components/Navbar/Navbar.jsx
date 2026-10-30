@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import SearchIcon from '../../Assets/Icons/Search.svg';
+import MoonIcon from '../../Assets/Icons/Moon.svg';
 import FavoriteIcon from '../../Assets/Icons/Favorite.svg';
 import BagIcon from '../../Assets/Icons/Bag.svg';
 import ProfileIcon from '../../Assets/Icons/Profile.svg';
@@ -10,6 +10,26 @@ import styles from './Navbar.module.css';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    const initialDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+    
+    setIsDark(initialDark);
+    document.documentElement.setAttribute('theme', initialDark ? 'dark' : 'light');
+  }, []);
+
+  const toggleDarkTheme = () => {
+    const newDarkState = !isDark;
+    setIsDark(newDarkState);
+    
+    const themeValue = newDarkState ? 'dark' : 'light';
+    document.documentElement.setAttribute('theme', themeValue);
+    localStorage.setItem('theme', themeValue);
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -45,8 +65,15 @@ const Navbar = () => {
         </ul>
         
         <section className={styles['action-buttons-container']}>
-          <button className={styles['action-button']} aria-label="Search" onClick={() => setIsMenuOpen(false)}> 
-            <img src={SearchIcon} alt="Search" /> 
+          <button 
+            className={styles['action-button']} 
+            aria-label="Theme" 
+            onClick={() => {
+              toggleDarkTheme();
+              setIsMenuOpen(false);
+            }}
+          > 
+            <img src={MoonIcon} alt="Theme" /> 
           </button>
           <button className={styles['action-button']} aria-label="Favorites" onClick={() => setIsMenuOpen(false)}> 
             <img src={FavoriteIcon} alt="Favorite" /> 
