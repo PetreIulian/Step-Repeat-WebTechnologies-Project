@@ -2,7 +2,7 @@ import React from "react";
 import Logo from "../../Assets/Logo.svg";
 import styles from "./Footer.module.css";
 
-const links = ['Home', 'About', 'Collection', 'Shop', 'FQA'];
+const links = ['Home', 'About','Shop', 'FQA', 'Contact'];
 
 const Footer = () => {
   return (
@@ -47,7 +47,7 @@ const Footer = () => {
         <ul className={styles.linksList}>
           {links.map((link) => (
             <li key={link}>
-              <a href={`/${link.toLowerCase()}`} className={styles.footerLink}>{link}</a>
+              <a href={link === 'Home' ? '/' : `/${link.toLowerCase()}`} className={styles.footerLink}>{link}</a>
             </li>
           ))}
         </ul>
