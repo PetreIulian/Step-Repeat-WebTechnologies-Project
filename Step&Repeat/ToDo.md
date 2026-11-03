@@ -1,0 +1,8 @@
+-cand adaugi la favorite sa se schimbe culoarea la iconita
+-pagina de favorite ma pusc
+-pagina checkout
+-pagina profil
+-hover pentru profil
+-logare
+-hookuri - loading screen, 
+-de adaugat niste keyframes e cam plictisitor fara

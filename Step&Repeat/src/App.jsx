@@ -6,6 +6,7 @@ import Shop from './Pages/Shop/Shop.jsx'
 import FAQ from './Pages/FAQ/FAQ.jsx'
 import Navbar from './Components/Navbar/Navbar.jsx'
 import { CartProvider } from './Context/CartContext';
+import { FavoriteProvider } from './Context/FavoriteContext';
 import Footer from './Components/Footer/Footer.jsx'
 import './App.css'
 
@@ -23,17 +24,19 @@ const AppContent = () => {
 
 function App() {
   return (
-    <CartProvider>
-      <Router>
-        <div className="app-container">
-          <Navbar />
 
-          <div className="main-content">
-            <AppContent />
+    <CartProvider>
+      <FavoriteProvider>
+        <Router>
+          <div className="app-container">
+            <Navbar />
+
+            <div className="main-content">
+              <AppContent />
+            </div>
           </div>
-          
-        </div>
-      </Router> 
+        </Router>
+      </FavoriteProvider> 
     </CartProvider>   
   )
 }

@@ -121,7 +121,6 @@
       transition: transform 0.3s ease;
 }
 
-/* --- Shopping Bag Dropdown & Hover Fix --- */
 .bag-container {
       position: relative;
       display: inline-block;
@@ -129,7 +128,7 @@
 
 .bag-dropdown {
       position: absolute;
-      top: calc(100% + 14px);
+      top: calc(100% + 40px);
       right: 0;
       width: 440px;
       background-color: #FFFFFF;
@@ -142,7 +141,6 @@
       animation: fadeInDropdown 0.25s ease-in-out;
 }
 
-/* Podul invizibil care menține hover-ul activ peste spațiul dintre buton și dropdown */
 .bag-dropdown::before {
       content: '';
       position: absolute;
@@ -443,3 +441,4 @@
             padding: 20px;
       }
 }
+
