@@ -30,7 +30,7 @@
   font-family: var(--font-main);
   font-size: clamp(2.5rem, 4vw, 3.5rem); 
   font-weight: bold;
-  color: var(--secondary-color);
+  color: #F7F7F7;
   line-height: 1.2;
   max-width: 550px;
 }
@@ -39,7 +39,7 @@
   font-family: var(--font-paragraph);
   font-size: clamp(1rem, 1.5vw, 1.1rem);
   font-weight: 400;
-  color: var(--grey);
+  color: #D6D6D6;
   line-height: 1.5;
   max-width: 550px;
 }
@@ -75,8 +75,8 @@
 
 .buttonSecond {
   background-color: transparent;
-  color: var(--secondary-color);
-  border: 2px solid var(--secondary-color);
+  color: #F7F7F7;
+  border: 2px solid #F7F7F7;
 }
 
 .buttonSecond:hover {

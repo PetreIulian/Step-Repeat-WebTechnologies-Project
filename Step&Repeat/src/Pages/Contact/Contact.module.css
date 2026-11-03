@@ -117,7 +117,7 @@
 .cctaContactImage {
   width: clamp(38px, 5vw, 48px);
   height: clamp(38px, 5vw, 48px);
-  background-color: var(--secondary-color);
+  background-color: #F58F7C;
   border-radius: 50%;
   padding: clamp(10px, 1.5vw, 12px);
   object-fit: contain;

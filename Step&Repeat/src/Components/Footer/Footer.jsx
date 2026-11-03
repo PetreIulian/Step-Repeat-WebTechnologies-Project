@@ -6,7 +6,7 @@ const links = ['Home', 'About', 'Collection', 'Shop', 'FQA'];
 
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} theme="light"> 
       <section className={styles.footerDescriptionContainer}>
         <div className={styles.logoHeader}>
           <div className={styles.logoBg}>

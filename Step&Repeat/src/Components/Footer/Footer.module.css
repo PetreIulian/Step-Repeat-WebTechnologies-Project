@@ -124,7 +124,7 @@
 
 .copyrightContainer {
   grid-column: 1 / -1;
-  border-top: 1px solid rgba(247, 247, 247, 0.15);
+  border-top: 1px solid var(--primary-accents);
   padding-top: 24px;
   text-align: center;
   margin-top: 16px;
@@ -132,7 +132,7 @@
 
 .copyright {
   margin: 0;
-  color: rgba(247, 247, 247, 0.5);
+  color: var(--primary-accents);
   font-size: 14px;
 }
 

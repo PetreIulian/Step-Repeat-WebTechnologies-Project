@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import Footer from "../../Components/Footer/Footer.jsx";
 import ProductList from "./ShopPageComponents/ProductList.jsx";
 import shoe_image from "../../Assets/Images/AirForce.svg";
+import { useCart } from "../../Context/CartContext";
 import "./Shop.css";
 
 const Shop = () => {
+  const { addToCart } = useCart();
   const [activeTab, setActiveTab] = useState("All Products");
   const [selectedSize, setSelectedSize] = useState("8");
   const [selectedBrand, setSelectedBrand] = useState("Nike");
@@ -15,8 +17,9 @@ const Shop = () => {
     Array.from({ length: 9 }, (_, index) => ({
       id: index + 1,
       title: "Nike 03 Air Force",
+      variant: `${selectedColor} · EU ${selectedSize}`,
+      price: 599,
       colorCount: "01 Color",
-      price: "$105.99",
       image: shoe_image
     }))
   );
@@ -117,8 +120,7 @@ const Shop = () => {
             </div>
           </div>
 
-          {/* Afișarea listei prin componentă dedicată */}
-          <ProductList products={products} />
+          <ProductList products={products} onAddToCart={addToCart} />
 
           <div className="load-more-container">
             <button className="load-more-btn">

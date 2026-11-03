@@ -5,6 +5,7 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import AirForce from "../../../../Assets/Images/AirForce.svg";
 import styles from "./ProductSwiper.module.css";
+import { useCart } from "../../../../Context/CartContext.jsx";
 
 const Products = [
   { id: 1, name: "Nike 03 Air Force", color: "01 Color", image: AirForce, price: 105.99 },
@@ -17,12 +18,14 @@ const Products = [
 const ProductSwiper = () => {
   const [prevEl, setPrevEl] = useState(null);
   const [nextEl, setNextEl] = useState(null);
+  
+  const { addToCart } = useCart();
 
   return (
-    <section className={styles.productSwiperSection}>
+    <section id="product-swiper-section" className={styles.productSwiperSection}>
       <div className={styles.headingContainer}>
         <h1 className={styles.swiperHeading}>Our Popular Products</h1>
-        <button className={styles.exploreButton}>
+        <button className={styles.exploreButton} onClick={() => window.location.href = "/shop"}>
           Explore More
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -84,7 +87,12 @@ const ProductSwiper = () => {
                   
                   <div className={styles.cardFooter}>
                     <span className={styles.price}>${product.price}</span>
-                    <button className={styles.addToCartBtn}>Add To Cart</button>
+                    <button 
+                      className={styles.addToCartBtn} 
+                      onClick={() => addToCart(product)}
+                    >
+                      Add To Cart
+                    </button>
                   </div>
                 </div>
               </SwiperSlide>
