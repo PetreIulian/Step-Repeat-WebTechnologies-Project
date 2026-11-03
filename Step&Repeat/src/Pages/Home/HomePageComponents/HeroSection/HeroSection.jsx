@@ -4,6 +4,13 @@ import sneaker from "../../../../Assets/Images/Shoe.svg";
 import styles from "./HeroSection.module.css";
 
 const HeroSection = () => {
+  const handleScroll = () => {
+    const swiperSection = document.getElementById("product-swiper-section");
+    if (swiperSection) {
+      swiperSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section 
       className={styles.heroSection} 
@@ -17,8 +24,12 @@ const HeroSection = () => {
             collection of shoes is designed to elevate your every step.
           </h2>
           <div className={styles.ctaContainer}>
-            <button className={styles.buttonFirst}>Shop Now</button>
-            <button className={styles.buttonSecond}>Browse Sneakers</button>
+            <button className={styles.buttonFirst} onClick={() => window.location.href = "/shop"}>
+              Shop Now
+            </button>
+            <button className={styles.buttonSecond} onClick={handleScroll}>
+              Browse Sneakers
+            </button>
           </div>
         </div>
       </div>

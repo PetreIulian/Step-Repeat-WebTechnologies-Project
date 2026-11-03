@@ -5,6 +5,7 @@ import Contact from './Pages/Contact/Contact.jsx'
 import Shop from './Pages/Shop/Shop.jsx'
 import FAQ from './Pages/FAQ/FAQ.jsx'
 import Navbar from './Components/Navbar/Navbar.jsx'
+import { CartProvider } from './Context/CartContext';
 import Footer from './Components/Footer/Footer.jsx'
 import './App.css'
 
@@ -22,16 +23,18 @@ const AppContent = () => {
 
 function App() {
   return (
-    <Router>
-      <div className="app-container">
-        <Navbar />
+    <CartProvider>
+      <Router>
+        <div className="app-container">
+          <Navbar />
 
-        <div className="main-content">
-          <AppContent />
+          <div className="main-content">
+            <AppContent />
+          </div>
+          
         </div>
-        
-      </div>
-    </Router> 
+      </Router> 
+    </CartProvider>   
   )
 }
 
