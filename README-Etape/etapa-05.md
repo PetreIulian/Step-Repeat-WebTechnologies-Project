@@ -1,0 +1,10 @@
+| ID | Requirement | Where (permalink) | How to check |
+| :--- | :--- | :--- | :--- |
+| S5-R1 | list kept in useState, in App | https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/15f2a7eb292048e64bdbe55ac1185737223aff16/Step%26Repeat/src/Context/CartContext.jsx#L5-L20| read |
+| S5-R2 | toggling changes state and card look |https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/15f2a7eb292048e64bdbe55ac1185737223aff16/Step%26Repeat/src/Components/Navbar/Navbar.jsx#L120-L171| click a checkbox |
+| S5-R3 | delete removes the item |https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/15f2a7eb292048e64bdbe55ac1185737223aff16/Step%26Repeat/src/Context/CartContext.jsx#L22-L25| click Delete |
+| S5-R4 | header counter derived, not in state |https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/15f2a7eb292048e64bdbe55ac1185737223aff16/Step%26Repeat/src/Context/CartContext.jsx#L9-L20| toggle, watch header |
+| S5-R5 | immutable updates (no push, splice, assignment) | | read |
+| S5-R6 | light / dark toggle: state + data-theme on html |https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/15f2a7eb292048e64bdbe55ac1185737223aff16/Step%26Repeat/src/Components/Navbar/Navbar.jsx#L41 https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/15f2a7eb292048e64bdbe55ac1185737223aff16/Step%26Repeat/src/Components/Navbar/Navbar.jsx#L58-L64| click the button, both system themes |
+| S5-R7 | no console warnings; README + AI log |https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/24a6e5071166477da0ab84ec7b27b4a0305f9cca/README.md| F12, Console |
+| S5-R8 | commit "Stage 5" pushed |https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/commits/main/ | commit history |
