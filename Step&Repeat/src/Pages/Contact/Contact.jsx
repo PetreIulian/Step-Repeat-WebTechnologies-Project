@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Contact.module.css";
 import placeholder from "../../Assets/Images/placeholder.svg";
 import Footer from "../../Components/Footer/Footer.jsx";
@@ -72,7 +72,40 @@ const DefaultContactInfo = [
   { image: <PinSVG />, title: "FIRM ADDRESS", value: "Splaiul Independenței 313\nBucharest, Romania" }
 ];
 
-const ContactCTA = ({ ContactInfo = DefaultContactInfo, banner, handleSubmit, handleChange, formData, isSending, statusMessage }) => {
+const ContactCTA = ({ 
+  ContactInfo = DefaultContactInfo, 
+  banner, 
+  handleSubmit: externalHandleSubmit, 
+  handleChange: externalHandleChange, 
+  formData: externalFormData, 
+  isSending: externalIsSending, 
+  statusMessage: externalStatusMessage 
+}) => {
+  const [internalFormData, setInternalFormData] = useState({});
+  const [internalIsSending, setInternalIsSending] = useState(false);
+  const [internalStatusMessage, setInternalStatusMessage] = useState(null);
+
+  const formData = externalFormData || internalFormData;
+  const isSending = externalIsSending !== undefined ? externalIsSending : internalIsSending;
+  const statusMessage = externalStatusMessage || internalStatusMessage;
+
+  const handleChange = externalHandleChange || ((e) => {
+    const { name, value } = e.target;
+    setInternalFormData(prev => ({ ...prev, [name]: value }));
+  });
+
+  const handleSubmit = externalHandleSubmit || ((e) => {
+    e.preventDefault();
+    setInternalIsSending(true);
+    setInternalStatusMessage(null);
+    
+    setTimeout(() => {
+      setInternalIsSending(false);
+      setInternalStatusMessage({ type: "success", text: "Mesajul a fost trimis cu succes!" });
+      setInternalFormData({});
+    }, 1200);
+  });
+
   return (
     <div className={styles.contactPageWrapper}>
       <section className={styles.contactHeaderContainer}>
@@ -177,7 +210,7 @@ const ContactCTA = ({ ContactInfo = DefaultContactInfo, banner, handleSubmit, ha
       </section>
     </div>
   );
-}
+};
 
 const Contact = () => {
   return (
@@ -186,6 +219,6 @@ const Contact = () => {
       <Footer /> 
     </>
   );
-}
+};
 
 export default Contact;
