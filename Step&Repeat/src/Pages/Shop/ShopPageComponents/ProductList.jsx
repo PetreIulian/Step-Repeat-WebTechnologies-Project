@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCard from "./ProductCard.jsx";
 
-export default function ProductList({ products, onAddToCart }) {
+export default function ProductList({ products, onAddToCart, addToFavorites }) {
   if (!products || products.length === 0) {
     return <p className="empty">Nu există niciun produs disponibil.</p>;
   }
@@ -13,6 +13,7 @@ export default function ProductList({ products, onAddToCart }) {
           key={product.id} 
           product={product} 
           onAddToCart={onAddToCart} 
+          addToFavorites={addToFavorites}
         />
       ))}
     </div>
