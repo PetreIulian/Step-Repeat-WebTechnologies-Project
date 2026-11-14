@@ -2,7 +2,7 @@ import React from "react";
 import Logo from "../../Assets/Logo.svg";
 import styles from "./Footer.module.css";
 
-const links = ['Home', 'About','Shop', 'FQA', 'Contact'];
+const links = ['Home', 'About','Shop', 'FAQ', 'Contact'];
 
 const Footer = () => {
   return (

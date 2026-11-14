@@ -6,3 +6,4 @@
 -logare
 -hookuri - loading screen, 
 -de adaugat niste keyframes e cam plictisitor fara
+-date prin propuri la e4 s2
