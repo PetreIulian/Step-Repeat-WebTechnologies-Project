@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 import styles from "./Contact.module.css";
 import placeholder from "../../Assets/Images/placeholder.svg";
 import Footer from "../../Components/Footer/Footer.jsx";
+
+const SERVICE_ID = import.meta.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.VITE_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.VITE_EMAILJS_PUBLIC_KEY;
 
 const FacebookSVG = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -66,45 +71,38 @@ const Socials = [
   { icon: <YoutubeSVG />, link: "https://www.youtube.com" }
 ];
 
-const DefaultContactInfo = [
+const ContactInfo = [
   { image: <EmailSVG />, title: "CONTACT EMAIL", value: "contact@stepandrepeat.com" },
   { image: <PhoneSVG />, title: "CONTACT PHONE", value: "+40 766 542 882" },
   { image: <PinSVG />, title: "FIRM ADDRESS", value: "Splaiul Independenței 313\nBucharest, Romania" }
 ];
 
-const ContactCTA = ({ 
-  ContactInfo = DefaultContactInfo, 
-  banner, 
-  handleSubmit: externalHandleSubmit, 
-  handleChange: externalHandleChange, 
-  formData: externalFormData, 
-  isSending: externalIsSending, 
-  statusMessage: externalStatusMessage 
-}) => {
-  const [internalFormData, setInternalFormData] = useState({});
-  const [internalIsSending, setInternalIsSending] = useState(false);
-  const [internalStatusMessage, setInternalStatusMessage] = useState(null);
+const ContactCTA = ({ banner }) => {
+  const [isSending, setIsSending] = useState(false);
+  const formRef = useRef(null);
 
-  const formData = externalFormData || internalFormData;
-  const isSending = externalIsSending !== undefined ? externalIsSending : internalIsSending;
-  const statusMessage = externalStatusMessage || internalStatusMessage;
-
-  const handleChange = externalHandleChange || ((e) => {
-    const { name, value } = e.target;
-    setInternalFormData(prev => ({ ...prev, [name]: value }));
-  });
-
-  const handleSubmit = externalHandleSubmit || ((e) => {
+  const handleOnSubmit = (e) => {
     e.preventDefault();
-    setInternalIsSending(true);
-    setInternalStatusMessage(null);
-    
-    setTimeout(() => {
-      setInternalIsSending(false);
-      setInternalStatusMessage({ type: "success", text: "Mesajul a fost trimis cu succes!" });
-      setInternalFormData({});
-    }, 1200);
-  });
+    setIsSending(true);
+
+    const send = () =>
+      emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY);
+
+    send()
+      .catch(() => send())
+      .then((result) => {
+        console.log(result.text);
+        alert("Mesaj trimis cu succes");
+        formRef.current.reset();
+      })
+      .catch((error) => {
+        console.log(error.text);
+        alert("Trimitere esuata");
+      })
+      .finally(() => {
+        setIsSending(false);
+      });
+  };
 
   return (
     <div className={styles.contactPageWrapper}>
@@ -127,7 +125,7 @@ const ContactCTA = ({
                 {ContactInfo.map((info, index) => (
                   <div key={index} className={styles.cctaContactInfoItem}>
                     <div className={styles.cctaContactImage}>
-                      {typeof info.image === 'string' ? <img src={info.image} alt={info.title} /> : info.image}
+                      {info.image}
                     </div>
                     <div className={styles.cctaContactTextWrapper}>
                       <h3 className={styles.cctaContactTitle}>{info.title}</h3>
@@ -153,27 +151,27 @@ const ContactCTA = ({
                 <h2 className={styles.cctaFormSubheading}>Please fill out the form below. We will contact you within 3 business days.</h2>
               </div>
 
-              <form className={styles.cctaForm} onSubmit={handleSubmit}>
+              <form className={styles.cctaForm} ref={formRef} onSubmit={handleOnSubmit}>
                 <div className={styles.cctaFormInnerLayout}>
                   
                   <div className={`${styles.cctaFormGroup} ${styles.thirdWidth}`}>
                     <label className={styles.cctaFormLabel} htmlFor="entity">INDIVIDUAL / COMPANY </label>
-                    <input className={styles.cctaFormInput} type="text" id="entity" name="entity" value={formData?.entity || ''} onChange={handleChange} placeholder="E.g. Tech Solutions SRL" required />
+                    <input className={styles.cctaFormInput} type="text" id="entity" name="entity" placeholder="E.g. Tech Solutions SRL" required />
                   </div>
 
                   <div className={`${styles.cctaFormGroup} ${styles.thirdWidth}`}>
                     <label className={styles.cctaFormLabel} htmlFor="name">CONTACT PERSON *</label>
-                    <input className={styles.cctaFormInput} type="text" id="name" name="contactName" value={formData?.contactName || ''} onChange={handleChange} placeholder="Full name" required />
+                    <input className={styles.cctaFormInput} type="text" id="name" name="contactName" placeholder="Full name" required />
                   </div>
 
                   <div className={`${styles.cctaFormGroup} ${styles.thirdWidth}`}>
                     <label className={styles.cctaFormLabel} htmlFor="email">EMAIL ADDRESS *</label>
-                    <input className={styles.cctaFormInput} type="email" id="email" name="email" value={formData?.email || ''} onChange={handleChange} placeholder="john_doe@gmail.com" required />
+                    <input className={styles.cctaFormInput} type="email" id="email" name="email" placeholder="john_doe@gmail.com" required />
                   </div>
 
                   <div className={`${styles.cctaFormGroup} ${styles.halfWidth}`}>
                     <label className={styles.cctaFormLabel} htmlFor="requestType">REQUEST TYPE *</label>
-                    <select className={styles.cctaFormSelect} id="requestType" name="requestType" value={formData?.requestType || ''} onChange={handleChange} required>
+                    <select className={styles.cctaFormSelect} id="requestType" name="requestType" defaultValue="" required>
                       <option value="" disabled>Select an option</option>
                       <option value="Parteneriat">Partenership</option>
                       <option value="Întrebări tehnice">Questions</option>
@@ -183,20 +181,15 @@ const ContactCTA = ({
 
                   <div className={`${styles.cctaFormGroup} ${styles.halfWidth}`}>
                     <label className={styles.cctaFormLabel} htmlFor="phone">PHONE *</label>
-                    <input className={styles.cctaFormInput} type="tel" id="phone" name="phone" value={formData?.phone || ''} onChange={handleChange} placeholder="+40 700 000 000" required />
+                    <input className={styles.cctaFormInput} type="tel" id="phone" name="phone" placeholder="+40 700 000 000" required />
                   </div>
 
                   <div className={`${styles.cctaFormGroup} ${styles.twoThirdsWidth}`}>
                     <label className={styles.cctaFormLabel} htmlFor="details">DETAILED MESSAGE</label>
-                    <textarea className={styles.cctaFormTextarea} id="details" name="details" value={formData?.details || ''} onChange={handleChange} placeholder="Please provide a few details ..." required></textarea>
+                    <textarea className={styles.cctaFormTextarea} id="details" name="details" placeholder="Please provide a few details ..." required></textarea>
                   </div>
 
                   <div className={`${styles.cctaFormGroup} ${styles.thirdWidth} ${styles.cctaBtnWrapper}`}>
-                    {statusMessage && statusMessage.text && (
-                      <div className={`${styles.cctaStatusMessage} ${styles[statusMessage.type]}`}>
-                        {statusMessage.text}
-                      </div>
-                    )}
                     <button className={styles.cctaFormButton} type="submit" disabled={isSending}>
                       <span>{isSending ? "SENDING..." : "SEND REQUEST"}</span>
                       {!isSending && <SendArrowSVG />}
