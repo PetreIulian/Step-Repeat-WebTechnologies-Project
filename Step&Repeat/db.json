@@ -1,14 +1,14 @@
 {
   "swiper": [
     {
-      "id": 1,
+      "id":1,
       "name": "Nike Air Force 1 '07",
       "color": "03 Colors",
       "image": "https://placehold.co/600x400/f4f4f5/18181b/png?text=Nike+Air+Force+1",
       "price": 119.99
     },
     {
-      "id": 2,
+      "id":2,
       "name": "Nike Dunk Low Retro",
       "color": "05 Colors",
       "image": "https://placehold.co/600x400/e4e4e7/18181b/png?text=Nike+Dunk+Low",

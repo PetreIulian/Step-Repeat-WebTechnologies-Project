@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
@@ -137,7 +138,9 @@ const ProductSwiper = () => {
                 <div className={styles.productCard}>
                   <div className={styles.cardHeader}>
                     <div className={styles.productInfo}>
-                      <h3>{product.name}</h3>
+                      <Link to={`/products/${product.id}`}>
+                        <h3>{product.name}</h3>
+                      </Link>
                       <p>{product.color}</p>
                     </div>
                     <button
@@ -145,27 +148,16 @@ const ProductSwiper = () => {
                       onClick={() => addToFavorites(product)}
                       aria-label="Add to favorites"
                     >
-                      <svg
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                      </svg>
+                      {/* svg */}
                     </button>
                   </div>
 
-                  <div className={styles.cardImage}>
+                  <Link to={`/products/${product.id}`} className={styles.cardImage}>
                     <img
                       src={product.image || "/placeholder.png"}
                       alt={product.name}
                     />
-                  </div>
+                  </Link>
 
                   <div className={styles.cardFooter}>
                     <span className={styles.price}>{product.price}RON</span>
