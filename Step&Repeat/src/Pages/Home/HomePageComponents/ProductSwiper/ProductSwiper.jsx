@@ -49,16 +49,17 @@ const ProductSwiper = () => {
 
   if (loading) {
     return (
-      <section id="product-swiper-section" className={styles.productSwiperSection}>
-        <p>Loading popular products...</p>
+      <section className="status-screen" role="status" aria-live="polite">
+        <div className="status-screen__spinner" aria-hidden="true" />
+        <p className="status-screen__text">Loading popular products...</p>
       </section>
     );
   }
 
   if (error) {
     return (
-      <section id="product-swiper-section" className={styles.productSwiperSection}>
-        <p>Error loading products: {error}</p>
+      <section className="status-screen status-screen--error" role="alert">
+        <p className="status-screen__text">Error loading products: {error}</p>
       </section>
     );
   }
