@@ -1,9 +1,9 @@
 | ID | Requirement | Where (permalink) | How to check |
 | :--- | :--- | :--- | :--- |
-| S6-R1 | npm run api starts, route shows JSON | package.json#L.., db.json | open localhost:3001/tasks |
-| S6-R2 | data no longer in React code | App.jsx#L.. (useState([])) | read |
-| S6-R3 | loading message while waiting | App.jsx#L.. | --delay 4000 |
-| S6-R4 | error message when API is down | App.jsx#L..-L.. | stop npm run api, refresh |
-| S6-R5 | fetch only in api.js, URL from env | api.js#L..-L.., .env.example | search for fetch |
-| S6-R6 | README Stage 6 section + AI log | README.md, ai-log/etapa-06.md | read |
-| S6-R7 | commit "Stage 6" pushed | link to the commit | commit history |
+| S6-R1 | npm run api starts, route shows JSON | https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/9476a54e45cbb49f08e825591a5ce0b6c46dc0ff/Step%26Repeat/package.json#L11 https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/9476a54e45cbb49f08e825591a5ce0b6c46dc0ff/Step%26Repeat/db.json#L46 | open localhost:3001/products |
+| S6-R2 | data no longer in React code | https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/9476a54e45cbb49f08e825591a5ce0b6c46dc0ff/Step%26Repeat/src/Pages/Shop/Shop.jsx#L21 | read |
+| S6-R3 | loading message while waiting | https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/9476a54e45cbb49f08e825591a5ce0b6c46dc0ff/Step%26Repeat/src/Pages/Shop/Shop.jsx#L65-L72 | --delay 4000 |
+| S6-R4 | error message when API is down | https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/9476a54e45cbb49f08e825591a5ce0b6c46dc0ff/Step%26Repeat/src/Pages/Shop/Shop.jsx#L43-L46 https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/9476a54e45cbb49f08e825591a5ce0b6c46dc0ff/Step%26Repeat/src/Pages/Shop/Shop.jsx#L74-L80 | stop npm run api, refresh |
+| S6-R5 | fetch only in api.js, URL from env | https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/9476a54e45cbb49f08e825591a5ce0b6c46dc0ff/Step%26Repeat/src/Api/api.js#L1-L36 https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/9476a54e45cbb49f08e825591a5ce0b6c46dc0ff/Step%26Repeat/.env.example | search for fetch |
+| S6-R6 | README Stage 6 section + AI log | https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/9476a54e45cbb49f08e825591a5ce0b6c46dc0ff/README.md#L62-L66 (ai-log/etapa-06.md lipsește) | read |
+| S6-R7 | commit "Stage 6" pushed | https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/commit/277bb2821a7bb837889dc5fcb92e1f952cf885c5 | commit history |

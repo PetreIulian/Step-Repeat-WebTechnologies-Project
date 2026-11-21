@@ -1,10 +1,10 @@
 | ID | Requirement | Where (permalink) | How to check |
 | :--- | :--- | :--- | :--- |
-| S7-R1 | controlled form: value + onChange on every field | TaskForm.jsx#L..-L.. | read |
-| S7-R2 | empty title shows an error, nothing is sent | TaskForm.jsx#L.. (valideaza) | submit empty, watch Network |
-| S7-R3 | added item shows in the list and survives refresh | App.jsx#L.. (handleAdd), api.js#L.. | add, refresh |
-| S7-R4 | toggle and delete survive refresh | App.jsx#L..-L.. | toggle/delete, refresh |
-| S7-R5 | button disabled while sending, form cleared only on success | TaskForm.jsx#L..-L.. | --delay 3000; stop API and submit |
-| S7-R6 | tw.json and the data-testid attributes from table 7.3 | tw.json, TaskCard.jsx#L..-L.. | querySelectorAll in the console |
-| S7-R7 | README Stage 7 section + AI log | README.md, ai-log/etapa-07.md | read |
-| S7-R8 | commit "Stage 7" pushed | link to the commit | commit history |
+| S7-R1 | controlled form: value + onChange on every field | https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/9476a54e45cbb49f08e825591a5ce0b6c46dc0ff/Step%26Repeat/src/Components/Reviews/ReviewsPageComponents/ReviewForm.jsx#L35-L48 | read |
+| S7-R2 | empty title shows an error, nothing is sent | https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/9476a54e45cbb49f08e825591a5ce0b6c46dc0ff/Step%26Repeat/src/Components/Reviews/ReviewsPageComponents/ReviewForm.jsx#L10-L19 | submit empty, watch Network |
+| S7-R3 | added item shows in the list and survives refresh | https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/9476a54e45cbb49f08e825591a5ce0b6c46dc0ff/Step%26Repeat/src/Components/Reviews/Reviews.jsx#L19-L22 https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/9476a54e45cbb49f08e825591a5ce0b6c46dc0ff/Step%26Repeat/src/Api/api.js#L38-L51 | add, refresh |
+| S7-R4 | toggle and delete survive refresh | https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/9476a54e45cbb49f08e825591a5ce0b6c46dc0ff/Step%26Repeat/src/Components/Reviews/Reviews.jsx#L24-L32 https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/9476a54e45cbb49f08e825591a5ce0b6c46dc0ff/Step%26Repeat/src/Api/api.js#L52-L53 | toggle/delete, refresh |
+| S7-R5 | button disabled while sending, form cleared only on success | https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/9476a54e45cbb49f08e825591a5ce0b6c46dc0ff/Step%26Repeat/src/Components/Reviews/ReviewsPageComponents/ReviewForm.jsx#L21-L30 https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/9476a54e45cbb49f08e825591a5ce0b6c46dc0ff/Step%26Repeat/src/Components/Reviews/ReviewsPageComponents/ReviewForm.jsx#L50-L52 | --delay 3000; stop API and submit |
+| S7-R6 | tw.json and the data-testid attributes from table 7.3 | https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/9476a54e45cbb49f08e825591a5ce0b6c46dc0ff/tw.json https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/9476a54e45cbb49f08e825591a5ce0b6c46dc0ff/Step%26Repeat/src/Components/Reviews/ReviewsPageComponents/ReviewCard.jsx#L5-L12 https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/9476a54e45cbb49f08e825591a5ce0b6c46dc0ff/Step%26Repeat/src/Components/Reviews/ReviewsPageComponents/ReviewForm.jsx#L34-L50 | querySelectorAll in the console |
+| S7-R7 | README Stage 7 section + AI log | https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/blob/9476a54e45cbb49f08e825591a5ce0b6c46dc0ff/README.md#L68-L71 (ai-log/etapa-07.md lipsește) | read |
+| S7-R8 | commit "Stage 7" pushed | https://github.com/PetreIulian/Step-Repeat-WebTechnologies-Project/commit/9476a54e45cbb49f08e825591a5ce0b6c46dc0ff | commit history |
