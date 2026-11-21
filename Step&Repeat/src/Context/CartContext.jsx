@@ -8,14 +8,13 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (product) => {
     setCartItems((prevItems) => {
-      const existingIndex = prevItems.findIndex((item) => item.id === product.id);
-      if (existingIndex > -1) {
-        const updated = [...prevItems];
-        updated[existingIndex].quantity += 1;
-        return updated;
-      } else {
-        return [...prevItems, { ...product, quantity: 1 }];
+      const exists = prevItems.some((item) => item.id === product.id);
+      if (exists) {
+        return prevItems.map((item) =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        );
       }
+      return [...prevItems, { ...product, name: product.name ?? product.title, quantity: 1 }];
     });
   };
 

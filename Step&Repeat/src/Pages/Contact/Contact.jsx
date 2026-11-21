@@ -4,9 +4,9 @@ import styles from "./Contact.module.css";
 import placeholder from "../../Assets/Images/placeholder.svg";
 import Footer from "../../Components/Footer/Footer.jsx";
 
-const SERVICE_ID = import.meta.VITE_EMAILJS_SERVICE_ID;
-const TEMPLATE_ID = import.meta.VITE_EMAILJS_TEMPLATE_ID;
-const PUBLIC_KEY = import.meta.VITE_EMAILJS_PUBLIC_KEY;
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const FacebookSVG = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

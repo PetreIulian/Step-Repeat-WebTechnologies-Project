@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
@@ -17,6 +17,7 @@ const ProductSwiper = () => {
   const [prevEl, setPrevEl] = useState(null);
   const [nextEl, setNextEl] = useState(null);
 
+  const navigate = useNavigate();
   const { addToCart } = useCart();
   const { addToFavorites } = useFavorites();
 
@@ -70,7 +71,7 @@ const ProductSwiper = () => {
         <h1 className={styles.swiperHeading}>Our Popular Products</h1>
         <button
           className={styles.exploreButton}
-          onClick={() => (window.location.href = "/shop")}
+          onClick={() => navigate("/shop")}
         >
           Explore More
           <svg
@@ -149,7 +150,9 @@ const ProductSwiper = () => {
                       onClick={() => addToFavorites(product)}
                       aria-label="Add to favorites"
                     >
-                      {/* svg */}
+                      <svg width="18" height="18" fill="none" stroke="grey" strokeWidth="2" viewBox="0 0 24 24">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                      </svg>
                     </button>
                   </div>
 

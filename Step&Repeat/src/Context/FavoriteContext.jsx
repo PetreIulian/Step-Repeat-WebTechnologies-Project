@@ -11,7 +11,7 @@ export const FavoriteProvider = ({ children }) => {
       if (exists) {
         return prevItems.filter((i) => i.id !== item.id);
       } else {
-        return [...prevItems, item];
+        return [...prevItems, { ...item, name: item.name ?? item.title }];
       }
     });
   };

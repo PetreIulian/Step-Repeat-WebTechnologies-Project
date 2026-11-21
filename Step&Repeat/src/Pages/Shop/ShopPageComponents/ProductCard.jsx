@@ -1,11 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function ProductCard({ product, onAddToCart, addToFavorites }) {
   return (
     <div className="product-card">
       <div className="product-card-header">
         <div>
-          <h4>{product.title}</h4>
+          <Link to={`/products/${product.id}`}>
+            <h4>{product.title}</h4>
+          </Link>
           <span className="product-color-info">{product.colorCount}</span>
         </div>
         <button className="wishlist-btn" aria-label="Add to wishlist" onClick={() => addToFavorites(product)}>
@@ -15,9 +18,9 @@ export default function ProductCard({ product, onAddToCart, addToFavorites }) {
         </button>
       </div>
       
-      <div className="product-image-container">
+      <Link to={`/products/${product.id}`} className="product-image-container">
         <img src={product.image} alt={product.title} />
-      </div>
+      </Link>
 
       <div className="product-card-footer">
         <span className="product-price">{product.price}RON</span>

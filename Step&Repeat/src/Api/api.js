@@ -11,7 +11,7 @@ export async function fetchSwiper() {
 export async function fetchQuestions() {
   const response = await fetch(`${API_URL}/questions`);
   if(!response.ok){
-    throw new Error ('Eroare server: ${response.status}');
+    throw new Error(`Eroare server: ${response.status}`);
   }
   return response.json();
 }
@@ -19,13 +19,16 @@ export async function fetchQuestions() {
 export async function fetchShop() {
   const response = await fetch(`${API_URL}/products`);
   if(!response.ok){
-    throw new Error ('Eroare server: ${response.status}');
+    throw new Error(`Eroare server: ${response.status}`);
   }
   return response.json();
 }
 
 export async function fetchProduct(id) {
-  const response = await fetch(`${API_URL}/swiper/${id}`);
+  let response = await fetch(`${API_URL}/products/${id}`);
+  if (response.status === 404) {
+    response = await fetch(`${API_URL}/swiper/${id}`);
+  }
   if (!response.ok) {
     throw new Error(`Eroare server: ${response.status}`);
   }

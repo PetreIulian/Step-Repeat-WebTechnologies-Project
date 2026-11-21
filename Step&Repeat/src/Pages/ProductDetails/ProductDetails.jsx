@@ -14,6 +14,8 @@ const ProductDetailPage = () => {
 
   useEffect(() => {
     let ignore = false;
+    setLoading(true);
+    setError(null);
 
     fetchProduct(id)
       .then((data) => {
@@ -47,6 +49,8 @@ const ProductDetailPage = () => {
     );
   }
 
+  const name = product.name ?? product.title;
+
   return (
     <section className={styles.detailContainer} data-testid="detail">
       <Link to="/" className={styles.backLink}>
@@ -56,13 +60,13 @@ const ProductDetailPage = () => {
       <div className={styles.content}>
         <img
           src={product.image || "/placeholder.png"}
-          alt={product.name}
+          alt={name}
           className={styles.image}
         />
 
         <div className={styles.info}>
-          <h2 data-testid="detail-title">{product.name}</h2>
-          <p>{product.color}</p>
+          <h2 data-testid="detail-title">{name}</h2>
+          <p>{product.colorCount ?? product.color}</p>
           <p className={styles.price}>{product.price} RON</p>
           {product.description && <p>{product.description}</p>}
 
