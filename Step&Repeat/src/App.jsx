@@ -9,7 +9,6 @@ import ProductDetailPage from './Pages/ProductDetails/ProductDetails.jsx'
 import PageNotFound from './Pages/PageNotFound/PageNotFound.jsx'
 import { CartProvider } from './Context/CartContext';
 import { FavoriteProvider } from './Context/FavoriteContext';
-import './App.css'
 
 const AppContent = () => {
   return (

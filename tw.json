@@ -1,0 +1,11 @@
+{
+  "resource": "reviews",
+  "apiUrl": "http://localhost:3001",
+  "listRoute": "/products/:id",
+  "detailRoute": "/products/:id",
+  "fields": {
+    "title": "string",
+    "text": "string",
+    "recommended": "boolean"
+  }
+}

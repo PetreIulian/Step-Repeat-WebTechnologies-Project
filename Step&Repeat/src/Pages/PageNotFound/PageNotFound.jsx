@@ -10,7 +10,7 @@ const PageNotFound = () => {
   return (
     <>
       <div className={styles.notFoundWrapper}>
-        <section className={styles.notFoundCard}>
+        <section className={styles.notFoundCard} data-testid="not-found">
           <h1 className={styles.errorCode}>404</h1>
           <h2 className={styles.title}>Page not found</h2>
           <p className={styles.message}>

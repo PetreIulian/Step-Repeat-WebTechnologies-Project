@@ -1,31 +1,32 @@
 import React from "react";
+import s from "../Shop.module.css";
 import { Link } from "react-router-dom";
 
 export default function ProductCard({ product, onAddToCart, addToFavorites }) {
   return (
-    <div className="product-card">
-      <div className="product-card-header">
+    <div className={s["product-card"]} data-testid="item">
+      <div className={s["product-card-header"]}>
         <div>
           <Link to={`/products/${product.id}`}>
-            <h4>{product.title}</h4>
+            <h4 data-testid="item-title">{product.title}</h4>
           </Link>
-          <span className="product-color-info">{product.colorCount}</span>
+          <span className={s["product-color-info"]}>{product.colorCount}</span>
         </div>
-        <button className="wishlist-btn" aria-label="Add to wishlist" onClick={() => addToFavorites(product)}>
+        <button className={s["wishlist-btn"]} aria-label="Add to wishlist" onClick={() => addToFavorites(product)}>
           <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
           </svg>
         </button>
       </div>
       
-      <Link to={`/products/${product.id}`} className="product-image-container">
+      <Link to={`/products/${product.id}`} className={s["product-image-container"]}>
         <img src={product.image} alt={product.title} />
       </Link>
 
-      <div className="product-card-footer">
-        <span className="product-price">{product.price}RON</span>
+      <div className={s["product-card-footer"]}>
+        <span className={s["product-price"]}>{product.price}RON</span>
         <button 
-          className="add-to-cart-btn" 
+          className={s["add-to-cart-btn"]} 
           onClick={() => onAddToCart(product)}
         >
           Add To Cart

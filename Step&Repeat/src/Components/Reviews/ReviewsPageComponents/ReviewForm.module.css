@@ -1,0 +1,34 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.input {
+  padding: 10px 14px;
+  border: 1px solid var(--grey);
+  border-radius: 10px;
+  font: inherit;
+  background: var(--secondary-color);
+  color: var(--primary);
+}
+
+.error {
+  color: var(--primary-accents);
+}
+
+.button {
+  align-self: flex-start;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 999px;
+  background: var(--primary);
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

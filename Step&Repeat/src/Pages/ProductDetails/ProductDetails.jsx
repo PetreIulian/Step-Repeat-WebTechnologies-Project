@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { fetchProduct } from "../../Api/api.js";
 import { useCart } from "../../Context/CartContext.jsx";
 import styles from "./ProductDetails.module.css";
+import Reviews from "../../Components/Reviews/Reviews.jsx";
 
 const ProductDetailPage = () => {
   const { id } = useParams();
@@ -73,6 +74,8 @@ const ProductDetailPage = () => {
           <button onClick={() => addToCart(product)}>Add To Cart</button>
         </div>
       </div>
+
+      <Reviews productId={id} />
     </section>
   );
 };

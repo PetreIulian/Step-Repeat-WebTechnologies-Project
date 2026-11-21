@@ -29,7 +29,10 @@ Open `index.html` in a browser. No build step, no server.
 - [x] Stage 3: Vite and React project
 - [x] Stage 4: components rendered from data
 - [x] Stage 5: local state and events
-- [ ] Stage 6: loading data from a mock API
+- [x] Stage 6: loading data from a mock API
+- [x] Stage 7: form and validation
+- [x] Stage 8: routing and detail page
+- [ ] Stage 9: own backend with Express
 
 ## Stage 2: data logic
 Plain JavaScript, no DOM. `adidasi.js` holds the array and the functions
@@ -55,3 +58,18 @@ The list lives in React state. Checking and deleting work from the page,
 and the counters in the header follow automatically. A button in the
 header switches between light and dark mode. Changes are lost on refresh,
 which is what stage 6 and stage 10 fix.
+
+## Stage 6: data from a mock API
+The list is served by json-server from `db.json`. The app fetches it on load
+and shows a loading state and an error state.
+npm run api # terminal 1, http://localhost:3001
+npm run dev # terminal 2, http://localhost:5173
+
+## Stage 7: form and validation
+Tasks can be added from the page. The form is controlled and validated,
+and every change (add, toggle, delete) goes to the API before it shows up
+in the list.
+
+## Stage 8: routing and detail page
+Three pages behind React Router: the list, a detail page at `/tasks/:id`,
+and an about page, plus a 404 page. Component styles moved to CSS Modules.

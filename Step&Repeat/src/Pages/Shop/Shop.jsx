@@ -3,7 +3,7 @@ import Footer from "../../Components/Footer/Footer.jsx";
 import ProductList from "./ShopPageComponents/ProductList.jsx";
 import { useCart } from "../../Context/CartContext";
 import { useFavorites } from "../../Context/FavoriteContext.jsx";
-import "./Shop.css";
+import s from "./Shop.module.css";
 import { fetchShop } from "../../Api/api.js";
  
 const PAGE_SIZE = 6;
@@ -99,15 +99,15 @@ const Shop = () => {
  
   return (
     <>
-      <section className="products-store-wrapper">
-        <div className="shop-container">
-          <div className="filters-header">
-            <span className="filters-label">Filters</span>
-            <div className="filter-tabs">
+      <section className={s["products-store-wrapper"]}>
+        <div className={s["shop-container"]}>
+          <div className={s["filters-header"]}>
+            <span className={s["filters-label"]}>Filters</span>
+            <div className={s["filter-tabs"]}>
               {["All Products", "Running", "Lifestyle", "New Arrivals"].map((tab) => (
                 <button
                   key={tab}
-                  className={`filter-tab-btn ${activeTab === tab ? "active" : ""}`}
+                  className={`${s["filter-tab-btn"]} ${activeTab === tab ? s["active"] : ""}`}
                   onClick={() => setActiveTab(tab)}
                 >
                   {tab}
@@ -116,20 +116,20 @@ const Shop = () => {
             </div>
           </div>
  
-          <div className="advanced-filters-card">
-            <div className="advanced-filters-top">
+          <div className={s["advanced-filters-card"]}>
+            <div className={s["advanced-filters-top"]}>
               <h3>Advanced Filters</h3>
-              <button className="reset-btn" onClick={handleReset}>Reset</button>
+              <button className={s["reset-btn"]} onClick={handleReset}>Reset</button>
             </div>
  
-            <div className="filter-grid">
-              <div className="filter-group">
+            <div className={s["filter-grid"]}>
+              <div className={s["filter-group"]}>
                 <label>Size</label>
-                <div className="filter-options">
+                <div className={s["filter-options"]}>
                   {["None", "8", "9", "10", "11"].map((size) => (
                     <button
                       key={size}
-                      className={`pill-btn ${(selectedSize === size || (!selectedSize && size === "None")) ? "selected" : ""}`}
+                      className={`${s["pill-btn"]} ${(selectedSize === size || (!selectedSize && size === "None")) ? s["selected"] : ""}`}
                       onClick={() => setSelectedSize(size === "None" ? "" : size)}
                     >
                       {size}
@@ -138,13 +138,13 @@ const Shop = () => {
                 </div>
               </div>
  
-              <div className="filter-group">
+              <div className={s["filter-group"]}>
                 <label>Brand</label>
-                <div className="filter-options">
+                <div className={s["filter-options"]}>
                   {["None", "Nike", "Adidas", "New Balance"].map((brand) => (
                     <button
                       key={brand}
-                      className={`pill-btn ${(selectedBrand === brand || (!selectedBrand && brand === "None")) ? "selected" : ""}`}
+                      className={`${s["pill-btn"]} ${(selectedBrand === brand || (!selectedBrand && brand === "None")) ? s["selected"] : ""}`}
                       onClick={() => setSelectedBrand(brand === "None" ? "" : brand)}
                     >
                       {brand}
@@ -153,13 +153,13 @@ const Shop = () => {
                 </div>
               </div>
  
-              <div className="filter-group">
+              <div className={s["filter-group"]}>
                 <label>Price</label>
-                <div className="filter-options">
+                <div className={s["filter-options"]}>
                   {["None", "Under RON100", "RON100–RON150", "RON150+"].map((price) => (
                     <button
                       key={price}
-                      className={`pill-btn ${(selectedPrice === price || (!selectedPrice && price === "None")) ? "selected" : ""}`}
+                      className={`${s["pill-btn"]} ${(selectedPrice === price || (!selectedPrice && price === "None")) ? s["selected"] : ""}`}
                       onClick={() => setSelectedPrice(price === "None" ? "" : price)}
                     >
                       {price}
@@ -168,13 +168,13 @@ const Shop = () => {
                 </div>
               </div>
  
-              <div className="filter-group">
+              <div className={s["filter-group"]}>
                 <label>Color</label>
-                <div className="filter-options">
+                <div className={s["filter-options"]}>
                   {["None", "Black", "White", "Red", "Blue"].map((color) => (
                     <button
                       key={color}
-                      className={`pill-btn ${(selectedColor === color || (!selectedColor && color === "None")) ? "selected" : ""}`}
+                      className={`${s["pill-btn"]} ${(selectedColor === color || (!selectedColor && color === "None")) ? s["selected"] : ""}`}
                       onClick={() => setSelectedColor(color === "None" ? "" : color)}
                     >
                       {color}
@@ -184,8 +184,8 @@ const Shop = () => {
               </div>
             </div>
  
-            <div className="filtered-by-box">
-              <span className="filtered-title">Filtered by</span>
+            <div className={s["filtered-by-box"]}>
+              <span className={s["filtered-title"]}>Filtered by</span>
               <p>Size: {selectedSize || "None"}</p>
               <p>Brand: {selectedBrand || "None"}</p>
               <p>Price: {selectedPrice || "None"}</p>
@@ -200,9 +200,9 @@ const Shop = () => {
           />
  
           {hasMore && (
-            <div className="load-more-container">
+            <div className={s["load-more-container"]}>
               <button
-                className="load-more-btn"
+                className={s["load-more-btn"]}
                 onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}
               >
                 Load More Products
