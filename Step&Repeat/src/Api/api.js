@@ -16,6 +16,14 @@ export async function fetchQuestions() {
   return response.json();
 }
 
+export async function fetchShop() {
+  const response = await fetch(`${API_URL}/products`);
+  if(!response.ok){
+    throw new Error ('Eroare server: ${response.status}');
+  }
+  return response.json();
+}
+
 export async function fetchProduct(id) {
   const response = await fetch(`${API_URL}/swiper/${id}`);
   if (!response.ok) {

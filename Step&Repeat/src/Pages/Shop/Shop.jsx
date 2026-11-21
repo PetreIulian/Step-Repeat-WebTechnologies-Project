@@ -1,32 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "../../Components/Footer/Footer.jsx";
 import ProductList from "./ShopPageComponents/ProductList.jsx";
-import shoe_image from "../../Assets/Images/AirForce.svg";
 import { useCart } from "../../Context/CartContext";
 import { useFavorites } from "../../Context/FavoriteContext.jsx";
 import "./Shop.css";
-
+import { fetchShop } from "../../Api/api.js";
+ 
+const PAGE_SIZE = 6;
+ 
 const Shop = () => {
   const { addToCart } = useCart();
   const { addToFavorites } = useFavorites();
+ 
   const [activeTab, setActiveTab] = useState("All Products");
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedBrand, setSelectedBrand] = useState("");
   const [selectedPrice, setSelectedPrice] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
-
-  const [allProducts] = useState([
-    { id: 1, title: "Nike 03 Air Force", category: "Lifestyle", brand: "Nike", size: "8", price: 120, color: "Black", colorCount: "01 Color", image: shoe_image },
-    { id: 2, title: "Adidas Ultraboost", category: "Running", brand: "Adidas", size: "9", price: 140, color: "White", colorCount: "02 Colors", image: shoe_image },
-    { id: 3, title: "New Balance 574", category: "Lifestyle", brand: "New Balance", size: "10", price: 90, color: "Red", colorCount: "01 Color", image: shoe_image },
-    { id: 4, title: "Nike Pegasus", category: "Running", brand: "Nike", size: "11", price: 160, color: "Blue", colorCount: "03 Colors", image: shoe_image },
-    { id: 5, title: "Adidas Stan Smith", category: "Lifestyle", brand: "Adidas", size: "8", price: 95, color: "White", colorCount: "01 Color", image: shoe_image },
-    { id: 6, title: "Nike ZoomX", category: "New Arrivals", brand: "Nike", size: "9", price: 180, color: "Black", colorCount: "02 Colors", image: shoe_image },
-    { id: 7, title: "New Balance Fresh Foam", category: "Running", brand: "New Balance", size: "10", price: 130, color: "Blue", colorCount: "01 Color", image: shoe_image },
-    { id: 8, title: "Adidas Forum", category: "New Arrivals", brand: "Adidas", size: "11", price: 110, color: "Red", colorCount: "02 Colors", image: shoe_image },
-    { id: 9, title: "Nike Blazer Mid", category: "Lifestyle", brand: "Nike", size: "8", price: 105, color: "Black", colorCount: "01 Color", image: shoe_image },
-  ]);
-
+ 
+  const [products, setProducts] = useState([]);
+  const [loading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+ 
   const handleReset = () => {
     setActiveTab("All Products");
     setSelectedSize("");
@@ -34,29 +30,73 @@ const Shop = () => {
     setSelectedPrice("");
     setSelectedColor("");
   };
-
-  const filteredProducts = allProducts.filter((product) => {
-    if (activeTab !== "All Products" && product.category !== activeTab) {
-      return false;
+ 
+  useEffect(() => {
+    let stop = false;
+ 
+    async function load() {
+      try {
+        const data = await fetchShop();
+        if (!stop) {
+          setProducts(Array.isArray(data) ? data : []);
+        }
+      } catch (err) {
+        if (!stop) {
+          setError(err.message || "Failed to load shop");
+        }
+      } finally {
+        if (!stop) {
+          setIsLoading(false);
+        }
+      }
     }
-    if (selectedSize && selectedSize !== "None" && product.size !== selectedSize) {
-      return false;
-    }
-    if (selectedBrand && selectedBrand !== "None" && product.brand !== selectedBrand) {
-      return false;
-    }
-    if (selectedColor && selectedColor !== "None" && product.color !== selectedColor) {
-      return false;
-    }
-    if (selectedPrice && selectedPrice !== "None") {
-      if (selectedPrice === "Under RON100" && product.price >= 100) return false;
-      if (selectedPrice === "RON100–RON150" && (product.price < 100 || product.price > 150)) return false;
-      if (selectedPrice === "RON150+" && product.price <= 150) return false;
-    }
-
+ 
+    load();
+ 
+    return () => {
+      stop = true;
+    };
+  }, []);
+ 
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [activeTab, selectedSize, selectedBrand, selectedPrice, selectedColor]);
+ 
+  if (loading) {
+    return (
+      <section className="status-screen" role="status">
+        <div className="status-screen__spinner" />
+        <p className="status-screen__text">Loading shop...</p>
+      </section>
+    );
+  }
+ 
+  if (error) {
+    return (
+      <section className="status-screen status-screen--error">
+        <p className="status-screen__text">Error loading shop: {error}</p>
+      </section>
+    );
+  }
+ 
+  const filteredProducts = products.filter((item) => {
+    const price = Number(item.price);
+ 
+    if (activeTab !== "All Products" && item.category !== activeTab) return false;
+    if (selectedSize && String(item.size) !== selectedSize) return false;
+    if (selectedBrand && item.brand !== selectedBrand) return false;
+    if (selectedColor && item.color !== selectedColor) return false;
+ 
+    if (selectedPrice === "Under RON100" && price >= 100) return false;
+    if (selectedPrice === "RON100–RON150" && (price < 100 || price > 150)) return false;
+    if (selectedPrice === "RON150+" && price <= 150) return false;
+ 
     return true;
   });
-
+ 
+  const visibleProducts = filteredProducts.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredProducts.length;
+ 
   return (
     <>
       <section className="products-store-wrapper">
@@ -75,13 +115,13 @@ const Shop = () => {
               ))}
             </div>
           </div>
-
+ 
           <div className="advanced-filters-card">
             <div className="advanced-filters-top">
               <h3>Advanced Filters</h3>
               <button className="reset-btn" onClick={handleReset}>Reset</button>
             </div>
-
+ 
             <div className="filter-grid">
               <div className="filter-group">
                 <label>Size</label>
@@ -97,7 +137,7 @@ const Shop = () => {
                   ))}
                 </div>
               </div>
-
+ 
               <div className="filter-group">
                 <label>Brand</label>
                 <div className="filter-options">
@@ -112,7 +152,7 @@ const Shop = () => {
                   ))}
                 </div>
               </div>
-
+ 
               <div className="filter-group">
                 <label>Price</label>
                 <div className="filter-options">
@@ -127,7 +167,7 @@ const Shop = () => {
                   ))}
                 </div>
               </div>
-
+ 
               <div className="filter-group">
                 <label>Color</label>
                 <div className="filter-options">
@@ -143,7 +183,7 @@ const Shop = () => {
                 </div>
               </div>
             </div>
-
+ 
             <div className="filtered-by-box">
               <span className="filtered-title">Filtered by</span>
               <p>Size: {selectedSize || "None"}</p>
@@ -152,27 +192,33 @@ const Shop = () => {
               <p>Color: {selectedColor || "None"}</p>
             </div>
           </div>
-
-          <ProductList 
-            products={filteredProducts} 
-            onAddToCart={addToCart} 
-            addToFavorites={addToFavorites} 
+ 
+          <ProductList
+            products={visibleProducts}
+            onAddToCart={addToCart}
+            addToFavorites={addToFavorites}
           />
-
-          <div className="load-more-container">
-            <button className="load-more-btn">
-              Load More Products
-              <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path d="M6 9l6 6 6-6"></path>
-              </svg>
-            </button>
-          </div>
+ 
+          {hasMore && (
+            <div className="load-more-container">
+              <button
+                className="load-more-btn"
+                onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}
+              >
+                Load More Products
+                <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </button>
+            </div>
+          )}
         </div>
       </section>
-
+ 
       <Footer />
     </>
   );
 };
-
+ 
 export default Shop;
+ 

@@ -44,6 +44,163 @@
     }
   ],
 
+  "products": [
+    {
+      "id": 1,
+      "title": "Nike 03 Air Force",
+      "category": "Lifestyle",
+      "brand": "Nike",
+      "size": "8",
+      "price": 120,
+      "color": "Black",
+      "colorCount": "01 Color",
+      "image": "https://placehold.co/600x400/f4f4f5/18181b/png?text=Nike+03+Air+Force"
+    },
+    {
+      "id": 2,
+      "title": "Adidas Ultraboost",
+      "category": "Running",
+      "brand": "Adidas",
+      "size": "9",
+      "price": 140,
+      "color": "White",
+      "colorCount": "02 Colors",
+      "image": "https://placehold.co/600x400/f4f4f5/18181b/png?text=Adidas+Ultraboost"
+    },
+    {
+      "id": 3,
+      "title": "New Balance 574",
+      "category": "Lifestyle",
+      "brand": "New Balance",
+      "size": "10",
+      "price": 90,
+      "color": "Red",
+      "colorCount": "01 Color",
+      "image": "https://placehold.co/600x400/f4f4f5/18181b/png?text=New+Balance+574"
+    },
+    {
+      "id": 4,
+      "title": "Nike Pegasus",
+      "category": "Running",
+      "brand": "Nike",
+      "size": "11",
+      "price": 160,
+      "color": "Blue",
+      "colorCount": "03 Colors",
+      "image": "https://placehold.co/600x400/f4f4f5/18181b/png?text=Nike+Pegasus"
+    },
+    {
+      "id": 5,
+      "title": "Adidas Stan Smith",
+      "category": "Lifestyle",
+      "brand": "Adidas",
+      "size": "8",
+      "price": 95,
+      "color": "White",
+      "colorCount": "01 Color",
+      "image": "https://placehold.co/600x400/f4f4f5/18181b/png?text=Adidas+Stan+Smith"
+    },
+    {
+      "id": 6,
+      "title": "Nike ZoomX",
+      "category": "New Arrivals",
+      "brand": "Nike",
+      "size": "9",
+      "price": 180,
+      "color": "Black",
+      "colorCount": "02 Colors",
+      "image": "https://placehold.co/600x400/f4f4f5/18181b/png?text=Nike+ZoomX"
+    },
+    {
+      "id": 7,
+      "title": "New Balance Fresh Foam",
+      "category": "Running",
+      "brand": "New Balance",
+      "size": "10",
+      "price": 130,
+      "color": "Blue",
+      "colorCount": "01 Color",
+      "image": "https://placehold.co/600x400/f4f4f5/18181b/png?text=New+Balance+Fresh+Foam"
+    },
+    {
+      "id": 8,
+      "title": "Adidas Forum",
+      "category": "New Arrivals",
+      "brand": "Adidas",
+      "size": "11",
+      "price": 110,
+      "color": "Red",
+      "colorCount": "02 Colors",
+      "image": "https://placehold.co/600x400/f4f4f5/18181b/png?text=Adidas+Forum"
+    },
+    {
+      "id": 9,
+      "title": "Nike Blazer Mid",
+      "category": "Lifestyle",
+      "brand": "Nike",
+      "size": "8",
+      "price": 105,
+      "color": "Black",
+      "colorCount": "01 Color",
+      "image": "https://placehold.co/600x400/f4f4f5/18181b/png?text=Nike+Blazer+Mid"
+    },
+    {
+      "id": 10,
+      "title": "Adidas Samba OG",
+      "category": "Lifestyle",
+      "brand": "Adidas",
+      "size": "9",
+      "price": 100,
+      "color": "Black",
+      "colorCount": "03 Colors",
+      "image": "https://placehold.co/600x400/f4f4f5/18181b/png?text=Adidas+Samba+OG"
+    },
+    {
+      "id": 11,
+      "title": "New Balance 550",
+      "category": "New Arrivals",
+      "brand": "New Balance",
+      "size": "10",
+      "price": 115,
+      "color": "White",
+      "colorCount": "01 Color",
+      "image": "https://placehold.co/600x400/f4f4f5/18181b/png?text=New+Balance+550"
+    },
+    {
+      "id": 12,
+      "title": "Nike Air Max 90",
+      "category": "Lifestyle",
+      "brand": "Nike",
+      "size": "11",
+      "price": 130,
+      "color": "Red",
+      "colorCount": "02 Colors",
+      "image": "https://placehold.co/600x400/f4f4f5/18181b/png?text=Nike+Air+Max+90"
+    },
+    {
+      "id": 13,
+      "title": "Adidas Adizero Boston",
+      "category": "Running",
+      "brand": "Adidas",
+      "size": "8",
+      "price": 150,
+      "color": "Blue",
+      "colorCount": "02 Colors",
+      "image": "https://placehold.co/600x400/f4f4f5/18181b/png?text=Adidas+Adizero+Boston"
+    },
+    {
+      "id": 14,
+      "title": "Adidas Adizero Boston",
+      "category": "Running",
+      "brand": "Adidas",
+      "size": "8",
+      "price": 150,
+      "color": "Blue",
+      "colorCount": "02 Colors",
+      "image": "https://placehold.co/600x400/f4f4f5/18181b/png?text=Adidas+Adizero+Boston"
+    }
+  ],
+
   "questions": [
     {
       "id": 1,
