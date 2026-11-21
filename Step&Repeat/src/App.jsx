@@ -6,6 +6,7 @@ import Shop from './Pages/Shop/Shop.jsx'
 import FAQ from './Pages/FAQ/FAQ.jsx'
 import Navbar from './Components/Navbar/Navbar.jsx'
 import ProductDetailPage from './Pages/ProductDetails/ProductDetails.jsx'
+import PageNotFound from './Pages/PageNotFound/PageNotFound.jsx'
 import { CartProvider } from './Context/CartContext';
 import { FavoriteProvider } from './Context/FavoriteContext';
 import Footer from './Components/Footer/Footer.jsx'
@@ -20,6 +21,7 @@ const AppContent = () => {
       <Route path="/shop" element={<Shop />} />
       <Route path="/faq" element={<FAQ />} />
       <Route path="/products/:id" element={<ProductDetailPage />} />
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   )
 } 

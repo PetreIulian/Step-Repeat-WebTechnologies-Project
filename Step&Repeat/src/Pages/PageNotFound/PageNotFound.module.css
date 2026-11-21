@@ -1,0 +1,117 @@
+.notFoundWrapper {
+  padding: clamp(30px, 15rem, 100px) clamp(15px, 3vw, 20px);
+  margin-top: clamp(4rem, 12vw, 8rem);
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notFoundCard {
+  max-width: 760px;
+  width: 100%;
+  background-color: var(--grey);
+  border-radius: clamp(12px, 2vw, 20px);
+  padding: clamp(30px, 6vw, 60px) clamp(20px, 6vw, 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(10px, 2vw, 18px);
+}
+
+.errorCode {
+  font-family: var(--font-title);
+  font-size: clamp(90px, 20vw, 180px);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--primary-accents);
+  text-shadow: 6px 6px 0 var(--secondary-accents);
+}
+
+.title {
+  font-family: var(--font-secondary);
+  font-size: clamp(22px, 4vw, 38px);
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.2;
+}
+
+.message {
+  font-family: var(--font-paragraph);
+  font-size: clamp(13px, 1.8vw, 18px);
+  color: var(--black);
+  opacity: 0.8;
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+.path {
+  font-family: var(--font-main);
+  font-weight: 600;
+  color: var(--primary-accents);
+  word-break: break-all;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(10px, 2vw, 16px);
+  margin-top: clamp(10px, 2vw, 20px);
+}
+
+.button {
+  font-family: var(--font-main);
+  font-size: clamp(13px, 1.6vw, 16px);
+  font-weight: 600;
+  padding: clamp(10px, 1.5vw, 14px) clamp(20px, 3vw, 32px);
+  border-radius: 999px;
+  border: 2px solid var(--primary-accents);
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.primaryButton,
+.primaryButton:visited {
+  background-color: var(--primary-accents);
+  color: var(--secondary-color);
+}
+
+.primaryButton:hover {
+  background-color: transparent;
+  color: var(--primary-accents);
+}
+
+.secondaryButton,
+.secondaryButton:visited {
+  background-color: transparent;
+  color: var(--primary-accents);
+}
+
+.secondaryButton:hover {
+  background-color: var(--primary-accents);
+  color: var(--secondary-color);
+}
+
+.backLink {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-secondary);
+  font-size: clamp(12px, 1.4vw, 14px);
+  font-weight: 500;
+  color: var(--primary);
+  opacity: 0.7;
+  margin-top: clamp(6px, 1vw, 10px);
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.backLink:hover {
+  opacity: 1;
+  color: var(--primary-accents);
+}

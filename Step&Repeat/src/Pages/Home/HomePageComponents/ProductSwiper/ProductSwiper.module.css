@@ -78,7 +78,7 @@
 }
 
 .productCard {
-  background-color: var(#F7F7F7, #f4f4f4);
+  background-color: var(--secondary-color, #f4f4f4);
   border-radius: 24px;
   padding: 24px;
   width: 100%;
